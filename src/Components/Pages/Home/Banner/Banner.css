@@ -1,0 +1,52 @@
+@keyframes up-down {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(
+      30px
+    ); /* Adjust the pixel value for the animation amplitude */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.up-down-animation {
+  animation: up-down 5s ease-in-out infinite; /* Adjust duration as needed */
+}
+
+/* First Animation */
+@keyframes slide-right-to-left {
+  0% {
+    transform: translateX(20%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-right-to-left {
+  animation: slide-right-to-left 1.5s ease-out forwards;
+}
+
+/* Second Animation */
+@keyframes slide-right-to-left2 {
+  0% {
+    transform: translateX(20%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-right-to-left2 {
+  animation: slide-right-to-left2 1.5s ease-out forwards;
+  animation-delay: 1.5s;
+  opacity: 0; /* Start as invisible */
+  transition: opacity 0s; /* Ensure no transition */
+}
