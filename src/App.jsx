@@ -34,7 +34,6 @@ function App() {
 
   return (
     <div style={{ fontFamily: "Kanit, sans-serif" }} className=" text-black bg-white dark:bg-white dark:text-black">
-
       {
         scrollY >= 300 && <button
           onClick={scrollToTop}
@@ -42,15 +41,12 @@ function App() {
           <MdArrowUpward className="text-2xl text-white" />
         </button>
       }
-
       <CustomeCursor />
       <CustomCursorRing />
       <NavBar scrollY={scrollY} />
-
       <div className="mt-32">
         <Home />
       </div>
-
     </div>
   );
 }
