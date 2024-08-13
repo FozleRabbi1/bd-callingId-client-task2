@@ -1,7 +1,10 @@
 const Brands = () => {
   return (
-    <div className="py-24">
-      <h2 className="text-center mb-16 font-sans font-semibold opacity-80 text-lg">
+    <div className="py-36">
+      <h2
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        className="text-center mb-16 font-sans font-semibold opacity-80 text-lg">
         We worked with global largest brands
       </h2>
       <div className="flex justify-evenly">
