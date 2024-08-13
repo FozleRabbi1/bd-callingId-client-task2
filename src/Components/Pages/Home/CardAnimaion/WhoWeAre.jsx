@@ -31,7 +31,7 @@ const WhoWeAre = () => {
                       technological data to produce brand
                       experiences that customers love our services.
                     </p>
-                    <HoverEffectDiv bgColor="red" hoverColor="white" />
+                    <HoverEffectDiv />
                   </div>
 
                 </div>

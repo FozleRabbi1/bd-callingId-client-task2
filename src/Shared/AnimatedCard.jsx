@@ -40,7 +40,7 @@
 import { useRef } from 'react';
 import { MdOutlineArrowOutward } from 'react-icons/md';
 
-const HoverEffectDiv = ({ bgColor, hoverColor }) => {
+const HoverEffectDiv = () => {
     const divRef = useRef(null);
 
     const handleMouseMove = (e) => {
@@ -74,6 +74,7 @@ const HoverEffectDiv = ({ bgColor, hoverColor }) => {
 };
 
 export default HoverEffectDiv;
+
 
 
 

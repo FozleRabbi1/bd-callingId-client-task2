@@ -1,6 +1,25 @@
-import HoverEffectDiv from "../../../../Shared/AnimatedCard";
+
+import AnimatedCard from "./AnimatedCard";
 
 const Services = () => {
+
+    const datas = [
+        {
+            id: 1,
+            title: "Search Engine Optimization",
+            description: "We help brands stand out through aweful, elegant visual design. Our design mainly philosophy.",
+            ulli: ["+ Logo Design", "+ Advertisement", "+ Promotion"],
+            image : "https://media.istockphoto.com/id/1490901300/photo/young-colleagues-cooperating-while-working-on-a-computer-in-the-office.webp?b=1&s=170667a&w=0&k=20&c=WQ_42khug17ZsOrr039hqO3AlqBi3Zs2oxR500C6Ag0="
+        },
+        {
+            id: 2,
+            title: "Search Engine Optimization",
+            description: "We help brands stand out through aweful, elegant visual design. Our design mainly philosophy.",
+            ulli: ["+ Logo Design", "+ Advertisement", "+ Promotion"],
+            image : "https://media.istockphoto.com/id/1490901300/photo/young-colleagues-cooperating-while-working-on-a-computer-in-the-office.webp?b=1&s=170667a&w=0&k=20&c=WQ_42khug17ZsOrr039hqO3AlqBi3Zs2oxR500C6Ag0="
+        },
+    ]
+
     return (
         <div>
             <div className="h-[80vh] flex justify-center items-center flex-col relative mb-20 ">
@@ -20,22 +39,29 @@ const Services = () => {
             </div>
 
 
-            <div>
+            <div className="mb-10">
 
-                <h2>Search Engine
-                    Optimization</h2>
+                {
+                    datas.map(data => (
 
-                <div>
-                    <h2>We help brands stand out through aweful, elegant visual design. Our design mainly philosophy.</h2>
+                        <div key={data.id} className="grid grid-cols-12 items-center border-y py-10 " >
+                            <h2 className="text-[30px] uppercase font-bold col-span-4">Search Engine
+                                Optimization</h2>
 
-                    <ul className="list-none">
-                        <li>+ Logo Design</li>
-                        <li>+ Advertisement</li>
-                        <li>+ Promotion</li>
-                    </ul>
-                </div>
+                            <div className="col-span-6 font-semibold text-gray-600 ">
+                                <h2 className="w-[60%]">We help brands stand out through aweful, elegant visual design. Our design mainly philosophy.</h2>
 
-                <HoverEffectDiv bgColor="white" hoverColor="black" />
+                                <ul className="list-none mt-4">
+                                    <li>+ Logo Design</li>
+                                    <li>+ Advertisement</li>
+                                    <li>+ Promotion</li>
+                                </ul>
+                            </div>
+                            <AnimatedCard className="col-span-4" />
+                        </div>
+                    ))
+                }
+
 
 
 
