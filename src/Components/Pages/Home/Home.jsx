@@ -3,6 +3,7 @@ import Brands from "./Brands/Brands";
 import WhoWeAre from "./CardAnimaion/WhoWeAre";
 import Services from "./Services/Services";
 import Featured from "./Featured/Featured";
+import Testimonial from "./Testimuniyal/Testimonial";
 
 const Home = () => {
   return (
@@ -16,6 +17,9 @@ const Home = () => {
         <Services />
       </div>
       <Featured />
+      <Testimonial />
+
+
     </div>
   );
 };

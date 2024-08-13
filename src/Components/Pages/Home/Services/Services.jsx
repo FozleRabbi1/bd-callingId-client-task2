@@ -32,8 +32,8 @@ const Services = () => {
     ]
 
     return (
-        <div>
-            <div className="h-[80vh] flex justify-center items-center flex-col relative mb-20 ">
+        <div className="pb-40">
+            <div className="h-[80vh] flex justify-center items-center flex-col relative mb-40 ">
                 <div className=" w-[35%] p-4 -mt-24 -ml-16">
                     <h2 data-aos="zoom-in-left" data-aos-duration="2000" className="text-xl text-gray-500">Services</h2>
                     <h2 data-aos="zoom-in-left" data-aos-duration="2000" className="text-[36px] uppercase font-extrabold">Our Marketing Services</h2>

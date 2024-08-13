@@ -61,7 +61,7 @@ function App() {
       {scrollY >= 300 && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-4 right-4 size-12 rounded-full flex justify-center items-center bg-black border border-sky-400 duration-500"
+          className="fixed bottom-4 right-4 size-12 rounded-full flex justify-center items-center bg-black border border-sky-400 duration-500 z-50"
         >
           <MdArrowUpward className="text-2xl text-white" />
         </button>

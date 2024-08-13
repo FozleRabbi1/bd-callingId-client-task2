@@ -42,7 +42,7 @@ const Featured = () => {
                         navigation={true}
                         speed={1500}
                         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-                        modules={[Autoplay, Pagination, Navigation]}
+                        modules={[Autoplay, Navigation]}
                         className="mySwiper  h-[100vh] "
                     >
 
