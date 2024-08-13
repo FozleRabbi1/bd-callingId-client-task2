@@ -1,4 +1,5 @@
 import "./Style.css";
+import HoverEffectDiv from "../../../../Shared/AnimatedCard";
 
 const WhoWeAre = () => {
   return (
@@ -26,12 +27,7 @@ const WhoWeAre = () => {
                       technological data to produce brand
                       experiences that customers love our services.
                     </p>
-
-                    <div className="size-[200px] mt-10 rounded-full border flex justify-center items-center">
-                      <p className="text-gray-400">Explore Us </p>
-                    </div>
-
-
+                    <HoverEffectDiv />
                   </div>
 
                 </div>

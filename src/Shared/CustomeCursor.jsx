@@ -1,40 +1,3 @@
-// import { useState } from "react";
-
-// export default function CustomCursor() {
-//   const [mousex, setMousex] = useState();
-//   const [mousey, setMouseY] = useState();
-//   const rect = document.body.getBoundingClientRect();
-//   window.addEventListener("mousemove", setMousePosition);
-//   function setMousePosition(e) {
-//     setMousex(e.clientX - rect.left);
-//     setMouseY(e.clientY - rect.top);
-//   }
-//   return (
-//     <div
-//       style={{
-//         position: "absolute",
-//         width: "10px",
-//         height: "10px",
-//         borderRadius: "50%",
-//         // backgroundImage: `url('${imagePath}')`,
-//         backgroundColor: "black",
-//         mixBlendMode: "multiply",
-//         backgroundSize: "cover",
-//         pointerEvents: "none",
-//         zIndex: 9999,
-//         // display:`${visible}`,
-//         transform: "translate(-50%, -50%)",
-//         left: `${mousex}px`,
-//         top: `${mousey}px`,
-//         transition: "transform 1s ease-out",
-//       }}
-//       onMouseMove={setMousePosition}
-//       className="custom-cursor"
-//     ></div>
-//   );
-// }
-
-
 
 // import { useState, useEffect } from "react";
 
@@ -47,8 +10,9 @@
 //   // Set up a mouse move event listener
 //   useEffect(() => {
 //     const handleMouseMove = (e) => {
-//       setMouseX(e.clientX);
-//       setMouseY(e.clientY);
+//       // Use pageX and pageY to account for scroll position
+//       setMouseX(e.pageX);
+//       setMouseY(e.pageY);
 //     };
 
 //     window.addEventListener("mousemove", handleMouseMove);
@@ -60,7 +24,7 @@
 
 //   // Update the delayed position with a delay effect
 //   useEffect(() => {
-//     const delay = 0.05;
+//     const delay = 0.04; // Adjust the delay value for smoother or faster effect
 //     const interval = setInterval(() => {
 //       setDelayedX((prevX) => prevX + (mouseX - prevX) * delay);
 //       setDelayedY((prevY) => prevY + (mouseY - prevY) * delay);
@@ -76,20 +40,19 @@
 //         width: "10px",
 //         height: "10px",
 //         borderRadius: "50%",
-//         backgroundColor: "black",
+//         backgroundColor: "aqua",
 //         mixBlendMode: "multiply",
 //         pointerEvents: "none",
-//         zIndex: 9999,
+//         zIndex: 99999999,
 //         transform: "translate(-50%, -50%)",
 //         left: `${delayedX}px`,
 //         top: `${delayedY}px`,
-//         transition: "left 0.1s ease-out, top 0.1s ease-out",
+//         transition: "left 0.09s ease-out, top 0.09s ease-out",
 //       }}
 //       className="custom-cursor"
 //     ></div>
 //   );
 // }
-
 
 
 import { useState, useEffect } from "react";
@@ -103,9 +66,9 @@ export default function CustomCursor() {
   // Set up a mouse move event listener
   useEffect(() => {
     const handleMouseMove = (e) => {
-      // Use pageX and pageY to account for scroll position
-      setMouseX(e.pageX);
-      setMouseY(e.pageY);
+      // Use clientX and clientY to account for viewport position
+      setMouseX(e.clientX);
+      setMouseY(e.clientY);
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -129,14 +92,13 @@ export default function CustomCursor() {
   return (
     <div
       style={{
-        position: "absolute",
+        position: "fixed", // Changed to fixed to keep it relative to the viewport
         width: "10px",
         height: "10px",
         borderRadius: "50%",
-        backgroundColor: "black",
-        mixBlendMode: "multiply",
+        backgroundColor: "aqua", // Change this color if needed
         pointerEvents: "none",
-        zIndex: 9999,
+        zIndex: 99999999,
         transform: "translate(-50%, -50%)",
         left: `${delayedX}px`,
         top: `${delayedY}px`,

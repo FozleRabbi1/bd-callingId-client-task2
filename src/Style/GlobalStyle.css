@@ -1,0 +1,43 @@
+.hover-effect-div {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin-top: 2.5rem;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hover-effect-div::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background-color: white;
+  transition: transform 0.5s ease;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.hover-effect-div:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.hover-effect-div p,
+.hover-effect-div svg {
+  position: relative;
+  z-index: 1;
+  color: #666;
+  transition: color 0.5s ease;
+}
+
+.hover-effect-div:hover p,
+.hover-effect-div:hover svg {
+  color: black;
+}
