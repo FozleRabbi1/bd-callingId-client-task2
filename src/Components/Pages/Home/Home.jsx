@@ -1,7 +1,7 @@
-// import AnimatedCard from "../../../Shared/AnimatedCard";
 import Banner from "./Banner/Banner";
 import Brands from "./Brands/Brands";
 import WhoWeAre from "./CardAnimaion/WhoWeAre";
+import Services from "./Services/Services";
 
 const Home = () => {
   return (
@@ -12,9 +12,12 @@ const Home = () => {
       </div>
       <WhoWeAre />
 
-      <div className="h-[100vh] bg-green-300 w-full">
-        {/* <AnimatedCard /> */}
+      <div className="max-w-[1200px] mx-auto ">
+        <Services />
+
       </div>
+
+
     </div>
   );
 };

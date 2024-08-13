@@ -1,11 +1,15 @@
+/* eslint-disable react/prop-types */
+
 import { CiSearch } from "react-icons/ci";
 import { HiMiniBars3BottomRight } from "react-icons/hi2";
 
 
 
-const NavBar = () => {
+const NavBar = ({ scrollY }) => {
+
+
   return (
-    <div className="bg-white fixed top-0 left-0 w-full z-50">
+    <div className={`bg-white fixed top-0 left-0 w-full z-50 ${scrollY >= 100 ? "border-b" : ""}  duration-300`}>
       <div className="navbar px-14">
         <div className="navbar-start">
           <div className="dropdown">
@@ -42,7 +46,7 @@ const NavBar = () => {
         <div className="navbar hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Item 1</a>
+              <a>Item 1 </a>
             </li>
 
             <li>
