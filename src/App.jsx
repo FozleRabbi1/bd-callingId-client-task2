@@ -7,6 +7,8 @@ import NavBar from "./Shared/Nav";
 import { useEffect, useState } from "react";
 import { MdArrowUpward } from "react-icons/md";
 
+
+
 function App() {
 
 

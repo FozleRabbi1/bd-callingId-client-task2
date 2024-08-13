@@ -40,7 +40,7 @@
 import { useRef } from 'react';
 import { MdOutlineArrowOutward } from 'react-icons/md';
 
-const HoverEffectDiv = () => {
+const HoverEffectDiv = ({ bgColor, hoverColor }) => {
     const divRef = useRef(null);
 
     const handleMouseMove = (e) => {
@@ -49,20 +49,18 @@ const HoverEffectDiv = () => {
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        // Smaller translation for a smaller movement area
         divElement.style.transform = `translate(${(x - rect.width / 2) / 5}px, ${(y - rect.height / 2) / 5}px)`;
     };
 
     const handleMouseLeave = () => {
         const divElement = divRef.current;
-        // Smoothly return to the original position
         divElement.style.transform = `translate(0px, 0px)`;
     };
 
     return (
         <div
             ref={divRef}
-            className="w-[200px] h-[200px] mt-10 rounded-full border flex justify-center items-center bg-black transition-transform duration-500 ease-out hover:bg-white cursor-pointer group"
+            className={`w-[200px] h-[200px] mt-10 rounded-full border flex justify-center items-center bg-black transition-transform duration-500 ease-out hover:bg-white cursor-pointer group`}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             style={{
