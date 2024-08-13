@@ -42,7 +42,6 @@
 .custom-scroll .card__content {
   background: none;
   color: rgb(10, 5, 7);
-  border-radius: 1em;
   overflow: hidden;
   display: grid;
   grid-template-areas: "img text";
@@ -71,7 +70,6 @@
   width: 33.5em;
   height: 37.5em;
   object-fit: cover;
-  border-radius: 10px;
 }
 
 @media screen and (max-width: 768px) {

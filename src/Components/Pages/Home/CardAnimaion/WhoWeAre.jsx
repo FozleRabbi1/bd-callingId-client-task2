@@ -1,28 +1,44 @@
 import "./Style.css";
 
-const EightSec = () => {
+const WhoWeAre = () => {
   return (
     <>
-      <div className="custom-scroll ">
+      <div className="custom-scroll bg-black  ">
         <div className="lg:w-[85%] mx-auto flex justify-between">
           <ul id="cards">
             <li className="card" id="card_1">
-              <div className="card__content">
+              <div className="card__content text-white">
                 <div>
-                  <h2 className="mt-[36px] text-[40px] md:text-[56px] lg:text-[65px] leading-[70px] font-[400] pt-10">
-                    We believe in improving
+                  <h2 className="text-white mt-[10px] pt-12 font-bold">Who We Are</h2>
+                  <h2 className="text-white  text-[35px] md:text-[56px] lg:text-[40px] leading-[40px] font-bold uppercase">
+                    We are leading
+                    digital marketing
+                    agency.
                   </h2>
 
-                  <p className="mt-10 text-xl leading-[40px] font-[Inter] md:text-[28px]">
-                    We are committed to giving back to the community and donate
-                    5% of our revenue to charities that make a difference in the
-                    lives of others......
-                  </p>
+                  <div className="ml-20 border-l border-gray-400 h-[500px] pl-8">
+                    <p className="text-gray-400 ">
+                      We’re a team of strategic mdigital marketing
+                      working globally with largest brands, We believe
+                      that progress only happens when you refused
+                      to play things safe. We combine ideas and
+                      behaviors, and insights with design,
+                      technological data to produce brand
+                      experiences that customers love our services.
+                    </p>
+
+                    <div className="size-[200px] mt-10 rounded-full border flex justify-center items-center">
+                      <p className="text-gray-400">Explore Us </p>
+                    </div>
+
+
+                  </div>
+
                 </div>
               </div>
             </li>
 
-            <li className="card  mt-[100px] mb-[300px]" id="card_2">
+            <li className="card  mt-[100px] mb-[800px]" id="card_2">
               <div className="card__content">
                 <figure>
                   <img
@@ -39,4 +55,4 @@ const EightSec = () => {
   );
 };
 
-export default EightSec;
+export default WhoWeAre;

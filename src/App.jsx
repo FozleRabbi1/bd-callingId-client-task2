@@ -8,7 +8,7 @@ import 'aos/dist/aos.css';
 function App() {
   Aos.init();
   return (
-    <div style={{ fontFamily: "Kanit, sans-serif" }} className="px-10  text-black">
+    <div style={{ fontFamily: "Kanit, sans-serif" }} className=" text-black">
       <CustomeCursor />
       <CustomCursorRing />
       <NavBar />
