@@ -7,7 +7,6 @@
 //   const [delayedX, setDelayedX] = useState(0);
 //   const [delayedY, setDelayedY] = useState(0);
 
-//   // Set up a mouse move event listener
 //   useEffect(() => {
 //     const handleMouseMove = (e) => {
 //       // Use pageX and pageY to account for scroll position
@@ -24,7 +23,7 @@
 
 //   // Update the delayed position with a delay effect
 //   useEffect(() => {
-//     const delay = 0.04; // Adjust the delay value for smoother or faster effect
+//     const delay = 0.04; 
 //     const interval = setInterval(() => {
 //       setDelayedX((prevX) => prevX + (mouseX - prevX) * delay);
 //       setDelayedY((prevY) => prevY + (mouseY - prevY) * delay);
@@ -63,10 +62,8 @@ export default function CustomCursor() {
   const [delayedX, setDelayedX] = useState(0);
   const [delayedY, setDelayedY] = useState(0);
 
-  // Set up a mouse move event listener
   useEffect(() => {
     const handleMouseMove = (e) => {
-      // Use clientX and clientY to account for viewport position
       setMouseX(e.clientX);
       setMouseY(e.clientY);
     };
@@ -78,9 +75,8 @@ export default function CustomCursor() {
     };
   }, []);
 
-  // Update the delayed position with a delay effect
   useEffect(() => {
-    const delay = 0.04; // Adjust the delay value for smoother or faster effect
+    const delay = 0.04;
     const interval = setInterval(() => {
       setDelayedX((prevX) => prevX + (mouseX - prevX) * delay);
       setDelayedY((prevY) => prevY + (mouseY - prevY) * delay);
@@ -92,11 +88,11 @@ export default function CustomCursor() {
   return (
     <div
       style={{
-        position: "fixed", // Changed to fixed to keep it relative to the viewport
+        position: "fixed",
         width: "10px",
         height: "10px",
         borderRadius: "50%",
-        backgroundColor: "aqua", // Change this color if needed
+        backgroundColor: "aqua",
         pointerEvents: "none",
         zIndex: 99999999,
         transform: "translate(-50%, -50%)",

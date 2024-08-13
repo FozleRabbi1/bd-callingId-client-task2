@@ -39,14 +39,14 @@
 //                 width: "40px",
 //                 height: "40px",
 //                 borderRadius: "50%",
-//                 border: "1px solid aqua", // Adjust the color as needed
-//                 backgroundColor: "transparent", // Make the background transparent
+//                 border: "1px solid aqua", 
+//                 backgroundColor: "transparent", 
 //                 pointerEvents: "none",
 //                 zIndex: 9999,
 //                 transform: "translate(-50%, -50%)",
 //                 left: `${delayedX}px`,
 //                 top: `${delayedY}px`,
-//                 // boxShadow: "0 0 5px rgba(0, 0, 0, 0.5)", // Add a shadow for better visibility
+//                 // boxShadow: "0 0 5px rgba(0, 0, 0, 0.5)", 
 //                 transition: "left 0.1s ease-out, top 0.1s ease-out",
 //             }}
 //             className="custom-cursor-ring"
@@ -66,7 +66,6 @@ export default function CustomCursorRing() {
     // Set up a mouse move event listener
     useEffect(() => {
         const handleMouseMove = (e) => {
-            // Use clientX and clientY to get position relative to the viewport
             setMouseX(e.clientX);
             setMouseY(e.clientY);
         };
@@ -78,9 +77,8 @@ export default function CustomCursorRing() {
         };
     }, []);
 
-    // Update the delayed position with a delay effect
     useEffect(() => {
-        const delay = 0.30; // Adjust the delay value for smoother or faster effect
+        const delay = 0.30;
         const interval = setInterval(() => {
             setDelayedX((prevX) => prevX + (mouseX - prevX) * delay);
             setDelayedY((prevY) => prevY + (mouseY - prevY) * delay);
@@ -92,18 +90,17 @@ export default function CustomCursorRing() {
     return (
         <div
             style={{
-                position: "fixed", // Changed to fixed to keep it relative to the viewport
+                position: "fixed",
                 width: "40px",
                 height: "40px",
                 borderRadius: "50%",
-                border: "1px solid aqua", // Adjust the color as needed
-                backgroundColor: "transparent", // Make the background transparent
+                border: "1px solid aqua",
+                backgroundColor: "transparent",
                 pointerEvents: "none",
                 zIndex: 9999,
                 transform: "translate(-50%, -50%)",
                 left: `${delayedX}px`,
                 top: `${delayedY}px`,
-                // boxShadow: "0 0 5px rgba(0, 0, 0, 0.5)", // Uncomment if needed
                 transition: "left 0.1s ease-out, top 0.1s ease-out",
             }}
             className="custom-cursor-ring"

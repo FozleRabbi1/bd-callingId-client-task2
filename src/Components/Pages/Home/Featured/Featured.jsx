@@ -77,4 +77,3 @@ const Featured = () => {
 
 export default Featured;
 
-// https://trackstore.qodeinteractive.com/wp-content/uploads/2017/10/background-2.jpg

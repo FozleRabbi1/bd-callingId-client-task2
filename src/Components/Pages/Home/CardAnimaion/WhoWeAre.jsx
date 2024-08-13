@@ -1,11 +1,7 @@
 import "./Style.css";
 import HoverEffectDiv from "../../../../Shared/AnimatedCard";
-// import { useState } from "react";
 
 const WhoWeAre = () => {
-
-  // const [colors, setColors] = useState({})
-
   return (
     <>
       <div className="custom-scroll bg-black  ">
