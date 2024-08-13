@@ -14,15 +14,25 @@ const WhoWeAre = () => {
             <li className="card" id="card_1">
               <div className="card__content text-white">
                 <div>
-                  <h2 className="text-white mt-[10px] pt-12 font-bold">Who We Are</h2>
-                  <h2 className="text-white  text-[35px] md:text-[56px] lg:text-[40px] leading-[40px] font-bold uppercase">
+                  <h2
+                    data-aos="fade-up-left"
+                    data-aos-duration="1500"
+                    data-aos-delay="100"
+                    className="text-white mt-[10px] pt-12 font-bold">Who We Are</h2>
+                  <h2
+                    data-aos="fade-up"
+                    data-aos-duration="2000"
+                    className="text-white  text-[35px] md:text-[56px] lg:text-[40px] leading-[40px] font-bold uppercase">
                     We are leading
                     digital marketing
                     agency.
                   </h2>
 
                   <div className="ml-20 border-l border-gray-400 h-[500px] pl-8">
-                    <p className="text-gray-400 ">
+                    <p
+                      data-aos="zoom-in-up"
+                      data-aos-duration="2000"
+                      className="text-gray-400 mt-10 ">
                       We’re a team of strategic mdigital marketing
                       working globally with largest brands, We believe
                       that progress only happens when you refused

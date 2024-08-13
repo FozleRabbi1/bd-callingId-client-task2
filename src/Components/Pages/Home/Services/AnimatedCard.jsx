@@ -20,15 +20,16 @@ const AnimatedCard = () => {
 
     return (
         <div
+            data-aos="fade-down"
             ref={divRef}
-            className={`w-[160px] h-[160px]  rounded-full border flex justify-center items-center bg-white transition-transform duration-500 ease-out hover:bg-black cursor-pointer group`}
+            className={`w-[160px] h-[160px]  rounded-full border flex justify-center items-center bg-white transition-transform duration-500 ease-out hover:bg-black cursor-pointer group z-40 `}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             style={{
                 transition: 'background-color 0.5s ease-out, transform 0.5s ease-out',
             }}
         >
-            <p className="text-black group-hover:text-white transition-colors duration-500">Explore Us</p>
+            <p className="text-black group-hover:text-white   duration-500">Explore Us</p>
             <MdOutlineArrowOutward className="text-black text-2xl ml-1 group-hover:text-white duration-500" />
         </div>
     );
