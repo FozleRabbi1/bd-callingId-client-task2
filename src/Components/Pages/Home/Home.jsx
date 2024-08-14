@@ -4,6 +4,7 @@ import WhoWeAre from "./CardAnimaion/WhoWeAre";
 import Services from "./Services/Services";
 import Featured from "./Featured/Featured";
 import Testimonial from "./Testimuniyal/Testimonial";
+import WhyChoose from "./whyChooseUs/WhyChoose";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       </div>
       <Featured />
       <Testimonial />
+      <WhyChoose />
 
 
     </div>
