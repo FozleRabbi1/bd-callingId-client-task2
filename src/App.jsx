@@ -5,6 +5,10 @@ import { useEffect, useState, useRef } from "react";
 import { MdArrowUpward } from "react-icons/md";
 
 function App() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [scrollY, setScrollY] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [delayedPosition, setDelayedPosition] = useState({ x: 0, y: 0 });
