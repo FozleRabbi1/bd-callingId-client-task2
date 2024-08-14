@@ -2,6 +2,7 @@
 
 import { CiSearch } from "react-icons/ci";
 import { HiMiniBars3BottomRight } from "react-icons/hi2";
+import { Link } from "react-router-dom";
 
 
 
@@ -37,23 +38,25 @@ const NavBar = ({ scrollY }) => {
             </ul>
           </div>
 
-          <img
-            src="https://i.ibb.co/qNNxyzp/logo2-removebg-preview.png"
-            alt=""
-          />
+          <Link to="/">
+            <img
+              src="https://i.ibb.co/qNNxyzp/logo2-removebg-preview.png"
+              alt=""
+            />
+          </Link>
         </div>
 
         <div className="navbar hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Item 1 </a>
+              <Link to="/products"> Products </Link>
             </li>
 
             <li>
-              <a>Item 3</a>
+              <a>Item 2</a>
             </li>
             <li>
-              <a>Item 4</a>
+              <a>Item 3</a>
             </li>
           </ul>
         </div>

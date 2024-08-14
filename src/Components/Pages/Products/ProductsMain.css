@@ -1,0 +1,12 @@
+.buttons {
+  border-radius: 5px;
+  background: #e0e0e0;
+  box-shadow: 5px 5px 10px #bebebe, -9px -9px 30px #ffffff;
+  color: black;
+  font-weight: 600;
+  transition: all 0.5s;
+}
+
+.buttons:hover {
+  box-shadow: 5px 5px 10px #837b7b;
+}

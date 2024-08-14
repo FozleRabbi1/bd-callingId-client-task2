@@ -19,7 +19,7 @@ const Footer = () => {
                 </div>
 
                 <div className="col-span-5 flex justify-center items-center">
-                    <h2 className="text-[80px] uppercase"> Lets's Talk </h2>
+                    <h2 className="text-[80px] uppercase"> Let's Talk </h2>
                 </div>
             </div>
 
