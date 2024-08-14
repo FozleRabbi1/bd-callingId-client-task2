@@ -79,12 +79,25 @@ const Testimonial = () => {
 
 
             <div className="images  absolute top-0 left-0 w-full h-full ">
-                <img className=" absolute w-52 h-44 left-[20%] top-[5%] " src="https://i.ibb.co/X8c1Rrf/office2.jpg" alt="" />
-                <img className=" absolute w-32 h-28 right-[20%] top-[10%]  " src="https://i.ibb.co/zSphSFc/office.jpg" alt="" />
-                <img className=" absolute w-32 h-28 left-[2%] top-[40%] " src="https://i.ibb.co/zHNWb8g/workplace.jpg" alt="" />
-                <img className=" absolute w-44 h-80 left-[5%] bottom-[10%] " src="https://i.ibb.co/XyJ2wSf/work.jpg" alt="" />
-                <img className=" absolute w-48 h-56 right-[5%] bottom-[30%] " src="https://i.ibb.co/M8FxW01/adda2.jpg" alt="" />
-                <img className=" absolute w-36 h-44 right-[15%] bottom-[20%] " src="https://i.ibb.co/ZgTQ012/adda.jpg" alt="" />
+                <img
+                    data-aos="zoom-in"
+                    data-aos-duration="2000"
+                    className=" absolute w-52 h-44 left-[20%] top-[5%] " src="https://i.ibb.co/X8c1Rrf/office2.jpg" alt="" />
+                <img
+                    data-aos="zoom-in"
+                    data-aos-duration="2000" className=" absolute w-32 h-28 right-[20%] top-[10%]  " src="https://i.ibb.co/zSphSFc/office.jpg" alt="" />
+                <img
+                    data-aos="zoom-in"
+                    data-aos-duration="2000" className=" absolute w-32 h-28 left-[2%] top-[40%] " src="https://i.ibb.co/zHNWb8g/workplace.jpg" alt="" />
+                <img
+                    data-aos="zoom-in"
+                    data-aos-duration="2000" className=" absolute w-44 h-80 left-[5%] bottom-[10%] " src="https://i.ibb.co/XyJ2wSf/work.jpg" alt="" />
+                <img
+                    data-aos="zoom-in"
+                    data-aos-duration="2000" className=" absolute w-48 h-56 right-[5%] bottom-[30%] " src="https://i.ibb.co/M8FxW01/adda2.jpg" alt="" />
+                <img
+                    data-aos="zoom-in"
+                    data-aos-duration="2000" className=" absolute w-36 h-44 right-[15%] bottom-[20%] " src="https://i.ibb.co/ZgTQ012/adda.jpg" alt="" />
             </div>
 
         </div>

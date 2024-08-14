@@ -4,6 +4,7 @@ import 'aos/dist/aos.css';
 import NavBar from "./Shared/Nav";
 import { useEffect, useState, useRef } from "react";
 import { MdArrowUpward } from "react-icons/md";
+import Footer from "./Shared/Footer";
 
 function App() {
   const [scrollY, setScrollY] = useState(0);
@@ -71,6 +72,8 @@ function App() {
       <div className="mt-32">
         <Home />
       </div>
+
+      <Footer/>
 
       <div
         style={{

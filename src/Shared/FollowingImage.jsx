@@ -32,6 +32,7 @@ export default function FollowingImage({ imageUrl, visible }) {
 
     return (
         <div
+
             style={{
 
                 position: "fixed",

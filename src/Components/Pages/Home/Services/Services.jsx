@@ -79,6 +79,7 @@ const Services = () => {
                             </div>
                             <AnimatedCard className="col-span-4 " />
 
+
                             <FollowingImage imageUrl={imageUrl} visible={customCursor} ></FollowingImage>
 
                         </div>

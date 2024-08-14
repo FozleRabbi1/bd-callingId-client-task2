@@ -23,7 +23,6 @@ const Home = () => {
       <WhyChoose />
       <PricingTable />
 
-
     </div>
   );
 };

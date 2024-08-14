@@ -66,28 +66,12 @@ const PricingTable = () => {
 
                 <div>
 
-                    {/* <div className="bg-black text-white flex rounded-md relative">
-                        <div className="flex items-center py-10 ">
-                            <span className="mx-8 bg-orange-500 p-3 rounded-md">
-                                <IoMdCheckmark />
-                            </span>
 
-                            <div>
-                                <button className="text-xs uppercase text-gray-400 border-[1.5px] px-4 py-[4px] mb-5 rounded-full ">yearly</button>
-                                <h2 className="text-xl uppercase font-bold">14 days free</h2>
-                                <p className="opacity-80 mt-4">Subscription fee is $129.99 USD and automatically renews each year.</p>
-                            </div>
-                        </div>
+                    <div
 
-                        <h2 className="mt-10 mr-10 text-3xl font-bold">
-                            $129.99
-                        </h2>
-
-                        <h2 className="bg-orange-400 absolute -top-[8px] right-10 px-2 rounded py-1 " >best value</h2>
-
-                    </div> */}
-
-                    <div className="bg-black text-white flex rounded-md relative">
+                        data-aos="fade-up"
+                        data-aos-duration="1200"
+                        className="bg-black text-white flex rounded-md relative">
                         <div className="flex items-center py-10">
                             <span className="mx-8 bg-orange-500 p-3 rounded-md">
                                 <IoMdCheckmark />
@@ -104,7 +88,8 @@ const PricingTable = () => {
                             $129.99
                         </h2>
 
-                        <h2 className="bg-orange-400 absolute top-0 right-2 transform -translate-x-1/2 -translate-y-1/2 px-2 rounded py-1">
+                        <h2
+                            className="bg-orange-400 absolute top-0 right-2 transform -translate-x-1/2 -translate-y-1/2 px-2 rounded py-1">
                             best value
                         </h2>
                     </div>
