@@ -5,6 +5,7 @@
 import { useRef } from "react";
 import { motion, useTransform, useScroll } from "framer-motion";
 import { Datas } from "./CarosulData";
+import ContactHoverCard from "./ContactHoverCard";
 
 const SixSecScrollNew = () => {
 
@@ -39,7 +40,7 @@ const HorizontalScrollCarousel = () => {
 const Card = ({ product }) => {
     return (
         <div
-            className="group relative h-[95vh] overflow-hidden flex "
+            className=" relative h-[95vh] overflow-hidden flex "
             style={{ margin: 0, padding: 0 }}
         >
             <div
@@ -50,8 +51,8 @@ const Card = ({ product }) => {
                 <div className="w-[75em] flex justify-center items-center flex-col ">
                     {
                         product.id === "1" && <>
-                            <h2 className={`${product.id === "1" && "font-bold text-[150px] uppercase"}`}>{product.title}</h2>
-                            {product.title2 && <h2 className={`${product.id === "1" && "font-bold text-[150px] uppercase"}`}>{product.title2}</h2>}
+                            <h2 className={`font-bold text-[150px] uppercase`}>{product.title}</h2>
+                            <h2 className={`font-bold text-[150px] uppercase -mt-12`}>{product.title2}</h2>
                         </>
                     }
 
@@ -100,25 +101,34 @@ const Card = ({ product }) => {
                     {
                         product.id === "3" && <div className=" grid grid-cols-3 pt-16 ">
 
-                                <div className=" col-span-1 pl-10">
-                                    <h2 className="font-bold  uppercase ">{product.title}</h2>
-                                    <h2 className="font-bold  uppercase">{product.title1}</h2>
+                            <div className=" col-span-1 pl-10">
+                                <h2 className="font-bold  uppercase ">{product.title}</h2>
+                                <h2 className="font-bold  uppercase">{product.title1}</h2>
 
-                                    <div className="grid grid-cols-2 gap-10  h-full mt-16">
-                                        <h2 className="text-[100px]" >{product.price[0]}K</h2>
-                                        <h2 className="text-[100px]" >{product.price[1]}K</h2>
-                                        <h2 className="text-[100px]" >{product.price[2]}</h2>
-                                        <h2 className="text-[100px]" >{product.price[3]}</h2>
-                                    </div>
+                                <div className="grid grid-cols-2 gap-10  h-full mt-16">
+                                    <h2 className="text-[100px]" >{product.price[0]}K</h2>
+                                    <h2 className="text-[100px]" >{product.price[1]}K</h2>
+                                    <h2 className="text-[100px]" >{product.price[2]}</h2>
+                                    <h2 className="text-[100px]" >{product.price[3]}</h2>
                                 </div>
+                            </div>
 
 
-                                <div className="col-span-2">
-                                    <img src={product.image} alt="" />
-                                </div>
+                            <div className="col-span-2">
+                                <img src={product.image} alt="" />
+                            </div>
 
 
 
+                        </div>
+                    }
+
+                    {
+                        product.id === "4" && <div className="text-center flex justify-center items-center flex-col">
+                            <h2 className="text-2xl  mb-10">{product.title}</h2>
+                            <h2 className="text-[60px]  mx-[15%]">{product.description}</h2>
+
+                            <ContactHoverCard text="Contact Us" />
                         </div>
                     }
 

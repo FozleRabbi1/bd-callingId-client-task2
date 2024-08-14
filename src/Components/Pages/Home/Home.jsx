@@ -5,6 +5,7 @@ import Services from "./Services/Services";
 import Featured from "./Featured/Featured";
 import Testimonial from "./Testimuniyal/Testimonial";
 import WhyChoose from "./whyChooseUs/WhyChoose";
+import PricingTable from "./PricingTable/PricingTable";
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
       <Featured />
       <Testimonial />
       <WhyChoose />
+      <PricingTable />
 
 
     </div>
