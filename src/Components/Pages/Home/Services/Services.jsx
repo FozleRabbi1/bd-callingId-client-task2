@@ -32,29 +32,31 @@ const Services = () => {
     ]
 
     return (
-        <div className="pb-40">
-            <div className="h-[80vh] flex justify-center items-center flex-col relative mb-40 ">
-                <div className=" w-[35%] p-4 -mt-24 -ml-16">
+        <div className="pb-40 overflow-hidden px-5 lg:px-16 ">
+
+            <div className=" md:h-[50vh] lg:h-[80vh] py-10 flex justify-center items-center flex-col lg:relative lg:mb-40  ">
+
+                <div className=" w-full lg:w-[35%]  lg:-mt-24 lg:-ml-16">
                     <h2 data-aos="zoom-in-left" data-aos-duration="2000" className="text-xl text-gray-500">Services</h2>
-                    <h2 data-aos="zoom-in-left" data-aos-duration="2000" className="text-[36px] uppercase font-extrabold">Our Marketing Services</h2>
+                    <h2 data-aos="zoom-in-left" data-aos-duration="2000" className="text-[36px] uppercase font-bold lg:font-extrabold">Our Marketing Services</h2>
                 </div>
 
-                <div className="border-l w-[50%] absolute right-32 -bottom-10 ">
-                    <p data-aos="zoom-in" data-aos-duration="2000" className="  py-20 px-20 text-justify ">
+                {/* <div className="border-l w-[50%] lg:absolute right-32 -bottom-10 "> */}
+                <div className="lg:border-l lg:w-[50%] lg:absolute lg:right-32 lg:-bottom-10 ">
+                    <p data-aos="zoom-in" data-aos-duration="2000" className="  lg:py-20 lg:px-20 text-justify ">
                         Consumers today rely heavily on digital means to
                         research products. We research a brand before engaging
                         with it, according to the data. Meanwhile, 51% of consumers
                         say they use Google to research products before buying.
                     </p>
                 </div>
+
             </div>
 
 
             <div className="mb-10">
-
                 {
                     datas.map(data => (
-
                         <div key={data.id}
                             onMouseEnter={() => setCursorImg(data.image)}
                             onMouseOver={() => { setCustomCursor('block') }}
@@ -63,42 +65,33 @@ const Services = () => {
                             <h2
                                 data-aos="zoom-in-right"
                                 data-aos-duration="2000"
-                                className="text-[30px]  w-[70%] uppercase font-bold col-span-4">{data.title}</h2>
+                                className="text-[30px]  lg:w-[70%] uppercase font-bold col-span-12 md:col-span-4">{data.title}</h2>
 
                             <div
                                 data-aos="zoom-in-right"
                                 data-aos-duration="2000"
-                                className="col-span-6 font-semibold text-gray-600 ">
-                                <h2 className="w-[60%]">{data.description}</h2>
+                                className="col-span-12 md:col-span-5 xl:col-span-6 font-semibold text-gray-600 ">
+                                <h2 className="w-[80%] lg:w-[60%] mt-5 md:mt-0">{data.description}</h2>
 
-                                <ul className="list-none mt-4">
+                                <ul className="list-none my-8 lg:mt-4 ">
                                     {
                                         data.ulli?.map(item => <li key={item} >{item}</li>)
                                     }
                                 </ul>
                             </div>
-                            <AnimatedCard className="col-span-4 " />
 
+                            <div className="col-span-12 md:col-span-3 xl:col-span-2 flex lg:justify-end " >
+                                <AnimatedCard />
+                            </div>
 
-                            <FollowingImage imageUrl={imageUrl} visible={customCursor} ></FollowingImage>
+                            <div className="hidden lg:block">
+                                <FollowingImage imageUrl={imageUrl} visible={customCursor} ></FollowingImage>
+                            </div>
 
                         </div>
                     ))
                 }
-
-
-
-
             </div>
-
-
-
-
-
-
-
-
-
 
 
         </div>

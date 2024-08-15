@@ -67,15 +67,15 @@ const WhoWeAre = () => {
         <div className=" lg:w-[100%]  mx-auto flex flex-col md:flex-row justify-between">
 
           <img
-            className="py-10 md:py-36 w-full md:w-[70%] lg:w-[100%] mx-auto  h-[100vh] md:h-full"
+            className="py-10 md:py-36 w-full md:w-[70%] lg:w-[100%] mx-auto  h-[650px] md:h-full"
             src="https://cdn.create.vista.com/api/media/small/14226715/stock-photo-office-work"
             alt="Image description"
           />
 
-          <div className="overflow-hidden" id="">
+          <div className="" id="">
             <div className=" md:mt-32 text-white">
               <div>
-                <div className="pl-5 ">
+                <div className="pl-5 overflow-hidden ">
                   <h2
                     data-aos="fade-up-left"
                     data-aos-duration="1500"
@@ -90,7 +90,7 @@ const WhoWeAre = () => {
                     agency.
                   </h2>
                 </div>
-                <div className=" lg:ml-20 lg:border-l border-gray-400 h-[500px] pl-5 lg:pl-8">
+                <div className=" lg:ml-20 lg:border-l border-gray-400 h-[500px] pl-5 lg:pl-8 overflow-hidden">
                   <p
                     data-aos="zoom-in-up"
                     data-aos-duration="2000"
