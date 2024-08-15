@@ -5,3 +5,29 @@
 html {
   scroll-behavior: smooth;
 }
+
+.text-container {
+  position: relative;
+  -webkit-box-reflect: below -40px linear-gradient(transparent, rgba(0, 0, 0, 0.25));
+}
+
+.text-container span {
+  position: relative;
+  display: inline-block;
+  color: #f5f5f5;
+  font-family: "Merienda One", cursive;
+  animation: jumpingTextAnim 2s infinite ease;
+  animation-delay: calc(0.1s * var(--text));
+}
+
+@keyframes jumpingTextAnim {
+  0%,
+  40%,
+  100% {
+    transform: translateY(0);
+  }
+
+  20% {
+    transform: translateY(-20px);
+  }
+}

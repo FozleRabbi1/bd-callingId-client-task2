@@ -20,7 +20,21 @@ const Footer = () => {
                 </div>
 
                 <div className=" col-span-12 md:col-span-5 flex justify-center items-center">
-                    <h2 className="text-[40px] lg:text-[80px] uppercase my-10 lg:my-0"> Let's Talk </h2>
+                    {/* <h2 className="text-[40px] lg:text-[80px] uppercase my-10 lg:my-0"> Let's Talk </h2> */}
+
+                    <div className="text-container text-[40px] lg:text-[80px] uppercase my-10 lg:my-0">
+                        <span style={{ '--text': 1 }}>L</span>
+                        <span style={{ '--text': 2 }}>E</span>
+                        <span style={{ '--text': 3 }}>T</span>
+                        <span style={{ '--text': 4 }}>'</span>
+                        <span style={{ '--text': 5 }}>S</span>
+                        <span style={{ '--text': 6 }}>-</span>
+                        <span style={{ '--text': 7 }}>T</span>
+                        <span style={{ '--text': 8 }}>A</span>
+                        <span style={{ '--text': 9 }}>L</span>
+                        <span style={{ '--text': 10 }}>K</span>
+                    </div>
+
                 </div>
 
             </div>
