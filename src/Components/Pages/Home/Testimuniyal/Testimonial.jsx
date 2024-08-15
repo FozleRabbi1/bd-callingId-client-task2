@@ -21,11 +21,11 @@ const Testimonial = () => {
 
 
     return (
-        <div className="relative py-5 ">
-            <div className="mb-14  overflow-hidden  h-[150vh] flex justify-center items-center">
+        <div className="relative py-5  ">
+            <div className="mb-14  overflow-hidden h-[90vh] md:h-[150vh] flex justify-center items-center">
 
 
-                <div className="w-[50%]  relative">
+                <div className="w-[80%] md:w-[50%]  relative">
                     <Swiper
                         spaceBetween={30}
                         centeredSlides={true}
@@ -78,7 +78,7 @@ const Testimonial = () => {
 
 
 
-            <div className="images  absolute top-0 left-0 w-full h-full ">
+            <div className="images  absolute top-0 left-0 w-full h-full hidden lg:block ">
                 <img
                     data-aos="zoom-in"
                     data-aos-duration="2000"

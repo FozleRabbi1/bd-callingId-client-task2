@@ -63,7 +63,7 @@ const WhoWeAre = () => {
       </div>
 
 
-      <div className="custom-scroll bg-black xl:hidden px-5  ">
+      <div className="custom-scroll bg-black xl:hidden p-5  ">
         <div className=" lg:w-[100%]  mx-auto flex flex-col md:flex-row justify-between">
 
           <img

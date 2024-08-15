@@ -32,7 +32,7 @@ const Services = () => {
     ]
 
     return (
-        <div className="pb-40 overflow-hidden px-5 lg:px-16 ">
+        <div className="lg:pb-40 overflow-hidden px-5 lg:px-16 ">
 
             <div className=" md:h-[50vh] lg:h-[80vh] py-10 flex justify-center items-center flex-col lg:relative lg:mb-40  ">
 
