@@ -4,7 +4,7 @@ import "./Banner.css";
 
 const Banner = () => {
   return (
-    <div className=" px-2 md:px-5 lg:px-10 xl:px-5">
+    <div className=" px-2 md:px-5 lg:px-10 xl:px-5 overflow-hidden">
       <div className="">
 
         <div className="flex justify-between items-center">
@@ -62,7 +62,6 @@ const Banner = () => {
 
       </div>
 
-
       <div className=" flex justify-between items-center  lg:-mt-28 ">
         <div className="hidden : lg:block">
           <span className="block up-down-animation h-[100px] w-[45px] border border-black flex justify-center items-center rounded-full opacity-60">
@@ -77,7 +76,6 @@ const Banner = () => {
           alt=""
         />
       </div>
-
 
     </div>
   );

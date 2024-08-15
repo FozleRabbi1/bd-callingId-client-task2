@@ -1,5 +1,4 @@
 import Home from "./Components/Pages/Home/Home";
-import Aos from "aos";
 import 'aos/dist/aos.css';
 import { useEffect, useState, useRef } from "react";
 import { MdArrowUpward } from "react-icons/md";
@@ -16,7 +15,6 @@ function App() {
   const requestRef = useRef();
 
   useEffect(() => {
-    Aos.init();
     const handleScroll = () => setScrollY(window.scrollY);
     const handleMouseMove = (e) => setMousePosition({ x: e.clientX, y: e.clientY });
     window.addEventListener('scroll', handleScroll);
