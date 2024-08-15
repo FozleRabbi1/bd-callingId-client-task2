@@ -10,7 +10,7 @@ import PricingTable from "./PricingTable/PricingTable";
 const Home = () => {
   return (
     <div>
-      <div className="max-w-[1200px] mx-auto  my-10 overflow-hidden">
+      <div className=" max-w-[1200px] mx-auto  my-10 overflow-hidden">
         <Banner />
         <Brands />
       </div>

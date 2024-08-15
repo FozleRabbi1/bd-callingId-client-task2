@@ -11,7 +11,7 @@ const NavBar = ({ scrollY }) => {
 
   return (
     <div className={`bg-white fixed top-0 left-0 w-full z-50 ${scrollY >= 100 ? "border-b" : ""}  duration-300`}>
-      <div className="navbar px-14">
+      <div className="navbar lg:px-14">
         <div className="navbar-start">
           <div className="dropdown">
             <ul
