@@ -68,37 +68,39 @@ function App() {
       </div>
 
 
-      <div
-        style={{
-          position: "fixed",
-          width: "10px",
-          height: "10px",
-          borderRadius: "50%",
-          backgroundColor: "aqua",
-          pointerEvents: "none",
-          zIndex: 99999999,
-          transform: "translate(-50%, -50%)",
-          left: `${delayedPosition.x}px`,
-          top: `${delayedPosition.y}px`,
-        }}
-        className="custom-cursor"
-      ></div>
-      <div
-        style={{
-          position: "fixed",
-          width: "40px",
-          height: "40px",
-          borderRadius: "50%",
-          border: "1px solid aqua",
-          backgroundColor: "transparent",
-          pointerEvents: "none",
-          zIndex: 9999,
-          transform: "translate(-50%, -50%)",
-          left: `${delayedPosition2.x}px`,
-          top: `${delayedPosition2.y}px`,
-        }}
-        className="custom-cursor-ring"
-      ></div>
+      <div className="hidden lg:block">
+        <div
+          style={{
+            position: "fixed",
+            width: "10px",
+            height: "10px",
+            borderRadius: "50%",
+            backgroundColor: "aqua",
+            pointerEvents: "none",
+            zIndex: 99999999,
+            transform: "translate(-50%, -50%)",
+            left: `${delayedPosition.x}px`,
+            top: `${delayedPosition.y}px`,
+          }}
+          className="custom-cursor"
+        ></div>
+        <div
+          style={{
+            position: "fixed",
+            width: "40px",
+            height: "40px",
+            borderRadius: "50%",
+            border: "1px solid aqua",
+            backgroundColor: "transparent",
+            pointerEvents: "none",
+            zIndex: 9999,
+            transform: "translate(-50%, -50%)",
+            left: `${delayedPosition2.x}px`,
+            top: `${delayedPosition2.y}px`,
+          }}
+          className="custom-cursor-ring"
+        ></div>
+      </div>
 
 
     </div>

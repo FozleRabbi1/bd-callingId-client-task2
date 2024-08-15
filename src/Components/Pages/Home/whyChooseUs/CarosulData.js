@@ -31,7 +31,8 @@ export const Datas = [
         title3: "Happy customers",
         color: "FFFFFF",
         image: "https://i.ibb.co/r2yRKmg/border-Image.png",
-        price: [25, 8, 15, 98]
+        price: [25, 8, 15, 98],
+        sortSummery: ["Project completed", "Happy customers", "Years expriencs", "Awards achievement"]
     },
     {
         id: "4",

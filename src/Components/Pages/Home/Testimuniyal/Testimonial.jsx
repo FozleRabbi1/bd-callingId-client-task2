@@ -44,7 +44,7 @@ const Testimonial = () => {
                         {carasodDatas.map((item) => (
                             <SwiperSlide key={item.id} className="overflow-hidden flex justify-center items-center text-center">
                                 <div>
-                                    <img className="size-16 mx-auto mb-10" src="https://i.ibb.co/ZHw23pN/comma-removebg-preview.png" alt="" />
+                                    <img className="size-16 mx-auto mb-5 md:mb-10" src="https://i.ibb.co/ZHw23pN/comma-removebg-preview.png" alt="" />
                                     <div>
                                         <p className="text-xl leading-8 italic text-black ">{item.description}</p>
                                     </div>

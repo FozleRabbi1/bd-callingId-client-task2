@@ -7,7 +7,7 @@ import { motion, useTransform, useScroll } from "framer-motion";
 import { Datas } from "./CarosulData";
 import ContactHoverCard from "./ContactHoverCard";
 
-const SixSecScrollNew = () => {
+const WhyChooseScrollBar = () => {
 
     return (
         <div>
@@ -47,7 +47,6 @@ const Card = ({ product }) => {
                 className="product-card flex justify-center items-center pt-10"
                 style={{ backgroundColor: `#${product?.color}` }}
             >
-
                 <div className="w-[75em] flex justify-center items-center flex-col ">
                     {
                         product.id === "1" && <>
@@ -55,7 +54,6 @@ const Card = ({ product }) => {
                             <h2 className={`font-bold text-[150px] uppercase -mt-12`}>{product.title2}</h2>
                         </>
                     }
-
                     {
                         product.id === "2" && <div className="grid grid-cols-2 pt-10">
 
@@ -97,7 +95,6 @@ const Card = ({ product }) => {
 
                         </div>
                     }
-
                     {
                         product.id === "3" && <div className=" grid grid-cols-3 pt-16 ">
 
@@ -106,10 +103,22 @@ const Card = ({ product }) => {
                                 <h2 className="font-bold  uppercase">{product.title1}</h2>
 
                                 <div className="grid grid-cols-2 gap-10  h-full mt-16">
-                                    <h2 className="text-[100px]" >{product.price[0]}K</h2>
-                                    <h2 className="text-[100px]" >{product.price[1]}K</h2>
-                                    <h2 className="text-[100px]" >{product.price[2]}</h2>
-                                    <h2 className="text-[100px]" >{product.price[3]}</h2>
+                                    <div>
+                                        <h2 className="text-[50px]" >{product.price[0]}K</h2>
+                                        <p className="-mt-2 w-[50%] font-semibold text-gray-500">{product?.sortSummery[0]}</p>
+                                    </div>
+                                    <div>
+                                        <h2 className="text-[50px]" >{product.price[1]}K</h2>
+                                        <p className="-mt-2 w-[50%] font-semibold text-gray-500">{product?.sortSummery[1]}</p>
+                                    </div>
+                                    <div>
+                                        <h2 className="text-[50px]" >{product.price[2]}</h2>
+                                        <p className="-mt-2 w-[50%] font-semibold text-gray-500">{product?.sortSummery[2]}</p>
+                                    </div>
+                                    <div>
+                                        <h2 className="text-[50px]" >{product.price[3]}</h2>
+                                        <p className="-mt-2 w-[50%] font-semibold text-gray-500">{product?.sortSummery[3]}</p>
+                                    </div>
                                 </div>
                             </div>
 
@@ -122,29 +131,21 @@ const Card = ({ product }) => {
 
                         </div>
                     }
-
                     {
                         product.id === "4" && <div className="text-center flex justify-center items-center flex-col">
                             <h2 className="text-2xl  mb-10">{product.title}</h2>
                             <h2 className="text-[60px]  mx-[15%]">{product.description}</h2>
-
                             <ContactHoverCard text="Contact Us" />
                         </div>
                     }
-
-
-
                 </div>
-
-
-
             </div>
         </div>
     );
 };
 
 
-export default SixSecScrollNew;
+export default WhyChooseScrollBar;
 
 
 

@@ -71,7 +71,7 @@ const Banner = () => {
         </div>
 
         <img
-          className="w-full lg:w-[80%] h-[200px] lg:h-[300px] mt-10 md:mt-14"
+          className="w-full lg:w-[80%] h-[250px] lg:h-[300px] mt-10 md:mt-14"
           src="https://i.ibb.co/V3GmPn2/long-Image.jpg"
           alt=""
         />
