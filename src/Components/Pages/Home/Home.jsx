@@ -21,10 +21,7 @@ const Home = () => {
       <Featured />
       <Testimonial />
       <WhyChooseUs />
-
-
       <PricingTable />
-
     </div>
   );
 };

@@ -16,7 +16,7 @@ const Featured = () => {
     const carasodDatas = [
         { id: 1, title: "Bengon", title2: "Website", title3: "2024", image: "https://i.ibb.co/t8dMrZy/model3.jpg" },
         { id: 2, title: "Bengon", title2: "Website", title3: "2024", image: "https://i.ibb.co/xHBgkB1/model2.webp" },
-        { id: 3, title: "Bengon", title2: "Website", title3: "2024", image: "https://i.ibb.co/pZq2wBp/model1.jpg" },
+        { id: 3, title: "Bengon", title2: "Website", title3: "2024", image: "https://i.ibb.co/jVLYLws/newmodel.jpg" },
         { id: 4, title: "Bengon", title2: "Website", title3: "2024", image: "https://i.ibb.co/xHBgkB1/model2.webp" },
     ];
 
