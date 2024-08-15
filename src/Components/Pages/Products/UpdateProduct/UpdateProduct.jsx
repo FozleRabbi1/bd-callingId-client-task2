@@ -1,27 +1,48 @@
 /* eslint-disable no-unused-vars */
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
+import { ProductsApi } from "../../../../redux/fetures/products/AroductApi";
+import { toast } from "react-toastify";
+import { useEffect } from "react";
 
 const UpdateProduct = () => {
-    const id = useParams()
-    console.log(id);
+    const getId = useParams()
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [updateProduct, { data, isLoading, isSuccess, isError }] = ProductsApi.useUpdateProductMutation()
 
-    const onSubmit = (data) => {
+
+    useEffect(() => {
+        if (isSuccess) {
+            toast.success(data?.message, {
+                position: "top-center",
+                theme: "light",
+            });
+        }
+        if (isError) {
+            toast.error("An error occurred while updating the product.");
+        }
+    }, [isSuccess, isError, data]);
+
+    const onSubmit = async (data) => {
         const filteredData = Object.fromEntries(
-            Object.entries(data).filter(([key, value]) => value !== "")
+            Object.entries(data).filter(([key, value]) => {
+                return value !== "" && value !== null && value !== undefined;
+            }).map(([key, value]) => {
+                if (!isNaN(value) && typeof value === 'string' && value.trim() !== "") {
+                    return [key, parseFloat(value)];
+                }
+                return [key, value];
+            })
         );
+        const newData = { ...filteredData, id: getId?.id }
 
-        console.log(filteredData);
-
+        await updateProduct(newData);
     };
+
 
     return (
         <div>
-
             <h2 className="text-center font-semibold py-2 italic">Update You Product</h2>
-
-
             <form onSubmit={handleSubmit(onSubmit)} className=" p-4 w-[70%] mx-auto ">
                 <div className="grid grid-cols-2 gap-x-8">
                     <div>
@@ -42,9 +63,6 @@ const UpdateProduct = () => {
                             />
                             {errors.category && <span className="text-red-500">Category is required</span>}
                         </div>
-
-
-
                         <div className="mb-4">
                             <label className="block mb-2">Image URL</label>
                             <input
@@ -74,9 +92,6 @@ const UpdateProduct = () => {
                             />
                             {errors.price && <span className="text-red-500">Price is required</span>}
                         </div>
-
-
-
                         <div className="mb-4">
                             <label className="block mb-2">Stock Quantity</label>
                             <input
@@ -101,7 +116,6 @@ const UpdateProduct = () => {
                     Submit
                 </button>
             </form>
-
         </div>
     );
 };

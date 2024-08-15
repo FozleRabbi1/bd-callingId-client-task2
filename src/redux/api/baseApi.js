@@ -6,6 +6,6 @@ export const baseApi = createApi({
     baseUrl: "http://localhost:5000/api/v1",
     // baseUrl: "https://bd-calling-server.vercel.app/api/v1",
   }),
-  tagTypes: ["CartProducts"],
+  tagTypes: ["Products"],
   endpoints: () => ({}),
 });

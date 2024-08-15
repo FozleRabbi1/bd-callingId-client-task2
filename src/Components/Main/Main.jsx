@@ -3,6 +3,9 @@ import NavBar from "../../Shared/Nav";
 import Footer from "../../Shared/Footer";
 import { useEffect, useState } from "react";
 import Aos from "aos";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Main = () => {
 
@@ -21,6 +24,7 @@ const Main = () => {
         <div>
             <NavBar scrollY={scrollY} />
             <Outlet />
+            <ToastContainer />
             <Footer></Footer>
         </div>
     );
