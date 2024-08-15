@@ -1,20 +1,48 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ProductsApi } from "../../../../redux/fetures/products/AroductApi";
 import './ShowAll.css'
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const ShowAll = () => {
+    const buttonStyle = "text-sm border border-gray-500 px-3 text-gray-600 hover:text-white hover:bg-black rounded-full duration-300";
+    const [deleteProduct, { data: deleteData, isSuccess }] = ProductsApi.useDeleteProductMutation()
     const { data, isLoading } = ProductsApi.useGetAllProductsQuery()
     const [itemData, setitemData] = useState(null)
 
-
+    useEffect(() => {
+        if (isSuccess) {
+            toast.success(deleteData?.message, {
+                position: "top-center",
+                theme: "light",
+            });
+        }
+    }, [isSuccess, deleteData]);
     if (isLoading) {
         return <div className="flex justify-center items-center w-full h-full">
             <p className="text-4xl">Loading....</p>
         </div>
     }
-    const buttonStyle = "text-sm border border-gray-500 px-3 text-gray-600 hover:text-white hover:bg-black rounded-full duration-300";
 
+    const handleDelete = (id) => {
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: `You won't remove This`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                deleteProduct(id);
+            }
+        })
+
+
+    }
 
     return (
         <div>
@@ -36,7 +64,7 @@ const ShowAll = () => {
                                             onMouseDown={() => setitemData(item)}
                                             className={buttonStyle} > details</button>
                                         <Link to={`update/${item?._id}`} className={buttonStyle} >update</Link>
-                                        <button className={buttonStyle} >delete</button>
+                                        <button onClick={() => handleDelete(item?._id)} className={buttonStyle} >delete</button>
                                     </div>
                                 </div>
 

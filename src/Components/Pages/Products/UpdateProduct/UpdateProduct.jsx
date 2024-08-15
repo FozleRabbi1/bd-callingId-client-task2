@@ -7,10 +7,8 @@ import { useEffect } from "react";
 
 const UpdateProduct = () => {
     const getId = useParams()
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const [updateProduct, { data, isLoading, isSuccess, isError }] = ProductsApi.useUpdateProductMutation()
-
-
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const [updateProduct, { data, isSuccess, isError }] = ProductsApi.useUpdateProductMutation()
     useEffect(() => {
         if (isSuccess) {
             toast.success(data?.message, {
@@ -35,8 +33,10 @@ const UpdateProduct = () => {
             })
         );
         const newData = { ...filteredData, id: getId?.id }
-
-        await updateProduct(newData);
+        const result = await updateProduct(newData);
+        if (result?.data) {
+            reset();
+        }
     };
 
 
