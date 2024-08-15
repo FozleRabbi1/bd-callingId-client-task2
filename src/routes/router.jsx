@@ -37,17 +37,7 @@ const routes = createBrowserRouter([
 
         ]
     },
-    // {
-    //     path: "/products",
-    //     element: <ProductsMain />,
-    //     children: [
-    //         {
-    //             path: "show-all",
-    //             element: <ShowAll />,
-    //         }
-    //     ]
 
-    // },
 ])
 
 

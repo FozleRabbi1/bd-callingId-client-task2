@@ -63,7 +63,7 @@ function App() {
         </button>
       )}
 
-      <div className="mt-32">
+      <div className="pt-24">
         <Home />
       </div>
 
