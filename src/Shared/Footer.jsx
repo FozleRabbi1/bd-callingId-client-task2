@@ -4,11 +4,11 @@ const Footer = () => {
     return (
         <div className="bg-black  text-white ">
 
-            <div className="grid grid-cols-12 text-center h-[60vh] px-[3%] " >
+            <div className="grid grid-cols-12 text-center md:h-[60vh] px-[3%] " >
 
                 <div className=" col-span-12 md:col-span-5 flex justify-center items-center flex-col" >
                     <h2 className="mr-auto mb-5 mt-10 md:mt-0">LOGO</h2>
-                    <h2 className=" lg:mr-[200px] text-left text-gray-400 mb-10 lg:mb-0">When do they work well, and when do they on us and finally, when do we actually need how can we avoid them.</h2>
+                    <h2 className=" w-[80%] md:w-[90%] lg:w-[75%] mr-auto text-left text-gray-400 mb-10 lg:mb-0">When do they work well, and when do they on us and finally, when do we actually need how can we avoid them.</h2>
 
                 </div>
 
@@ -20,12 +20,12 @@ const Footer = () => {
                 </div>
 
                 <div className=" col-span-12 md:col-span-5 flex justify-center items-center">
-                    <h2 className="text-[40px] lg:text-[80px] uppercase mt-10 lg:mt-0"> Let's Talk </h2>
+                    <h2 className="text-[40px] lg:text-[80px] uppercase my-10 lg:my-0"> Let's Talk </h2>
                 </div>
 
             </div>
 
-            <div className="border-t mt-56 md:mt-0">
+            <div className="border-t">
                 <div className="px-[3%] py-16 flex flex-col-reverse justify-center lg:flex-row lg:justify-between">
                     <div className=" text-center lg:text-left flex flex-row lg:flex-col justify-center mt-5 lg:mt-0">
                         <h2>

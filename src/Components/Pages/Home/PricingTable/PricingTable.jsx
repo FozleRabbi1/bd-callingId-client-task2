@@ -57,48 +57,49 @@ const PricingTable = () => {
                     <div
                         data-aos="fade-up"
                         data-aos-duration="1200"
-                        className="bg-black text-white flex rounded-md relative">
+                        className="bg-black text-white rounded-md relative">
 
-                        <div className="flex items-center py-10">
+                        <div className="flex items-center py-10 ">
                             <span className="mx-8 bg-orange-500 p-3 rounded-md">
                                 <IoMdCheckmark />
                             </span>
                             <div>
                                 <button className="text-xs uppercase text-gray-400 border-[1.5px] px-4 py-[4px] mb-5 rounded-full ">yearly</button>
                                 <h2 className="text-xl uppercase font-bold">14 days free</h2>
-                                <p className="opacity-80 mt-4 ">Subscription fee is $129.99 USD and automatically renews each year.</p>
+                                <p className="opacity-80 mt-4 w-[90%] lg:w-[70%] ">Subscription fee is $129.99 USD and automatically renews each year.</p>
                             </div>
                         </div>
-
-                        <h2 className="mt-10 mr-10 text-3xl font-bold">
+                        <h2 className="text-2xl lg:text-3xl font-bold absolute top-[15%] lg:top-[20%] right-[10%]">
                             $129.99
                         </h2>
-
                         <h2
                             className="bg-orange-400 absolute top-0 right-2 transform -translate-x-1/2 -translate-y-1/2 px-2 rounded py-1">
                             best value
                         </h2>
                     </div>
 
-                    <div className="bg-white text-black flex rounded-md mt-4">
+                    <div
+                        data-aos="fade-up"
+                        data-aos-duration="1200"
+                        className="bg-white text-black rounded-md relative mt-5">
+
                         <div className="flex items-center py-10 ">
-                            <span className="mx-8 border-2 border-gray-300  text-gray-500 font-bold p-3 rounded-md">
+                            <span className="mx-8 bg-orange-500 p-3 rounded-md">
                                 <IoMdCheckmark />
                             </span>
-
                             <div>
                                 <button className="text-xs uppercase text-black border-[1.5px] border-black px-4 py-[4px] mb-5 rounded-full ">monthly</button>
                                 <h2 className="text-xl uppercase font-bold">7 days free</h2>
-                                <p className="opacity-80 mt-4">Subscription fee is $12.99 USD and automatically renews each year.</p>
+                                <p className="opacity-80 mt-4 w-[90%] lg:w-[70%] ">Subscription fee is $129.99 USD and automatically renews each year.</p>
                             </div>
                         </div>
-
-                        <h2 className="mt-10 mr-10 text-3xl font-bold">
+                        <h2 className="text-2xl lg:text-3xl font-bold absolute top-[15%] lg:top-[20%] right-[10%]">
                             $12.99
                         </h2>
 
                     </div>
-                    
+
+
                     <div className="mt-10 md:mt-20">
                         <ContactHoverCard text="try it free now" />
                     </div>
