@@ -1,16 +1,11 @@
 /* eslint-disable react/prop-types */
-
 import { CiSearch } from "react-icons/ci";
 import { HiMiniBars3BottomRight } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 
-
-
 const NavBar = ({ scrollY }) => {
-
-
   return (
-    <div className={`bg-white fixed top-0 left-0 w-full z-50 ${scrollY >= 100 ? "border-b" : ""}  duration-300`}>
+    <div className={`bg-white dark:text-black fixed top-0 left-0 w-full z-50 ${scrollY >= 100 ? "border-b" : ""}  duration-300`}>
       <div className="navbar lg:px-14">
         <div className="navbar-start">
           <div className="dropdown">
@@ -46,16 +41,16 @@ const NavBar = ({ scrollY }) => {
           </Link>
         </div>
 
-        <div className="navbar hidden lg:flex">
+        <div className="navbar hidden lg:flex font-semibold ">
           <ul className="menu menu-horizontal px-1">
-            <li>
+            <li className="text-[16px] text-gray-600">
               <Link to="/products"> Products </Link>
             </li>
 
-            <li>
+            <li className="text-[16px] text-gray-600">
               <a>Item 2</a>
             </li>
-            <li>
+            <li className="text-[16px] text-gray-600">
               <a>Item 3</a>
             </li>
           </ul>

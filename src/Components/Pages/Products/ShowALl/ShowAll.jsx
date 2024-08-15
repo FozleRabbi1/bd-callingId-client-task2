@@ -53,7 +53,7 @@ const ShowAll = () => {
 
 
     return (
-        <div>
+        <div className="text-black dark:text-black">
             <h2 className="text-center font-semibold py-2 italic">Show ALl </h2>
             <div className=" p-10 pt-2  ">
 
@@ -87,7 +87,7 @@ const ShowAll = () => {
             {/*======================  dialog box ====================== */}
 
             <dialog id="my_modal_4" className="modal">
-                <div className="modal-box w-11/12 max-w-5xl  h-[90vh] flex flex-col">
+                <div className="modal-box w-11/12 max-w-5xl  h-[90vh] flex flex-col dark:bg-white">
 
                     <div className="flex flex-grow">
                         <div className="flex flex-col justify-center items-start p-4 flex-1">

@@ -21,7 +21,7 @@ const Main = () => {
 
 
     return (
-        <div className="">
+        <div className="bg-white dark:bg-white">
             <NavBar scrollY={scrollY} />
             <Outlet />
             <ToastContainer />
