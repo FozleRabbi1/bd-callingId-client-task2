@@ -21,7 +21,7 @@ const Main = () => {
 
 
     return (
-        <div className="overflow-x-hidden">
+        <div className="">
             <NavBar scrollY={scrollY} />
             <Outlet />
             <ToastContainer />

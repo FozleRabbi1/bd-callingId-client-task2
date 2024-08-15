@@ -6,6 +6,7 @@ const WhoWeAre = () => {
     <>
       <div className="custom-scroll bg-black  ">
         <div className="lg:w-[85%] mx-auto flex justify-between">
+
           <ul id="cards">
             <li className="card" id="card_1">
               <div className="card__content text-white">
@@ -55,6 +56,7 @@ const WhoWeAre = () => {
               </div>
             </li>
           </ul>
+
         </div>
       </div>
     </>

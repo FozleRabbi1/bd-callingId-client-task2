@@ -1,20 +1,23 @@
 const Brands = () => {
   return (
-    <div className="py-36">
+    <div className="py-16 lg:py-36">
       <h2
         data-aos="fade-up"
         data-aos-duration="1000"
         className="text-center mb-16 font-sans font-semibold opacity-80 text-lg">
         We worked with global largest brands
       </h2>
-      <div className="flex justify-evenly">
+
+      <div className=" grid grid-cols-2 lg:grid-cols-6 gap-10  ">
         <img
+          className="mx-auto"
           data-aos="slide-up"
           data-aos-duration="1000"
           src="https://i.ibb.co/F7StNNj/1.png"
           alt=""
         />
         <img
+          className="mx-auto"
           data-aos="slide-up"
           data-aos-duration="1000"
           data-aos-delay="100"
@@ -22,6 +25,7 @@ const Brands = () => {
           alt=""
         />
         <img
+          className="mx-auto"
           data-aos="slide-up"
           data-aos-duration="1000"
           data-aos-delay="150"
@@ -29,6 +33,7 @@ const Brands = () => {
           alt=""
         />
         <img
+          className="mx-auto"
           data-aos="slide-up"
           data-aos-duration="1000"
           data-aos-delay="200"
@@ -36,6 +41,7 @@ const Brands = () => {
           alt=""
         />
         <img
+          className="mx-auto"
           data-aos="slide-up"
           data-aos-duration="1000"
           data-aos-delay="250"
@@ -43,6 +49,7 @@ const Brands = () => {
           alt=""
         />
         <img
+          className="mx-auto"
           data-aos="slide-up"
           data-aos-duration="1000"
           data-aos-delay="300"

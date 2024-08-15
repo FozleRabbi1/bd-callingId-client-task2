@@ -10,7 +10,7 @@ const ProductsMain = () => {
 
 
     return (
-        <div className="max-w-[1200px] mx-auto mt-20">
+        <div className="lg:max-w-[1200px] mx-auto mt-20">
             <div className="grid grid-cols-12 min-h-[70vh]">
                 <div className=" col-span-2 bg-gray-200 sticky top-20 h-[calc(100vh-6rem)]">
                     <div className="flex flex-col items-center">

@@ -5,7 +5,7 @@ const PricingTable = () => {
     return (
         <div className="py-[150px] bg-[#f3ecec]">
 
-            <div className="max-w-[1200px] px-10 mx-auto grid grid-cols-2 gap-20 " >
+            <div className="lg:max-w-[1200px] px-10 mx-auto grid grid-cols-2 gap-20 " >
                 <div>
                     <h2 className="uppercase font-semibold opacity-70">Pricing Table</h2>
                     <h1 className="uppercase text-[46px] font-bold w-[80%] leading-[50px] mt-5">Be kind to your

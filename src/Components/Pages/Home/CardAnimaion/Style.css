@@ -74,10 +74,10 @@
 
 @media screen and (max-width: 768px) {
   .custom-scroll #cards {
-    display: none;
+    /* display: none; */
   }
   .custom-scroll .card__content {
-    background-color: aqua;
+    /* background-color: aqua; */
     grid-template-columns: reverse;
   }
 }
