@@ -1,15 +1,23 @@
 import { useEffect, useState } from "react";
-import { ProductsApi } from "../../../../redux/fetures/products/AroductApi";
 import './ShowAll.css'
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import { ProductsApi } from "../../../../redux/fetures/products/ProductApi";
 
 const ShowAll = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const buttonStyle = "text-sm border border-gray-500 px-3 text-gray-600 hover:text-white hover:bg-black rounded-full duration-300";
+
+    // ====================>>>>>>>> API Call and State
     const [deleteProduct, { data: deleteData, isSuccess }] = ProductsApi.useDeleteProductMutation()
     const { data, isLoading } = ProductsApi.useGetAllProductsQuery()
     const [itemData, setitemData] = useState(null)
+
+
+
 
     useEffect(() => {
         if (isSuccess) {
@@ -24,9 +32,7 @@ const ShowAll = () => {
             <p className="text-4xl">Loading....</p>
         </div>
     }
-
     const handleDelete = (id) => {
-
         Swal.fire({
             title: 'Are you sure?',
             text: `You won't remove This`,
@@ -40,14 +46,17 @@ const ShowAll = () => {
                 deleteProduct(id);
             }
         })
-
-
     }
+
+
+
+
 
     return (
         <div>
             <h2 className="text-center font-semibold py-2 italic">Show ALl </h2>
-            <div className=" p-10 pt-2 ">
+            <div className=" p-10 pt-2  ">
+
                 <div className=" grid grid-cols-3 gap-14 ">
                     {
                         data?.data.map(item =>
@@ -73,6 +82,10 @@ const ShowAll = () => {
                 </div>
             </div>
 
+
+            {/*======================  dialog box ====================== */}
+            {/*======================  dialog box ====================== */}
+
             <dialog id="my_modal_4" className="modal">
                 <div className="modal-box w-11/12 max-w-5xl  h-[90vh] flex flex-col">
 
@@ -95,12 +108,51 @@ const ShowAll = () => {
                     </div>
                 </div>
             </dialog>
-
-
-
-
         </div>
     );
 };
 
 export default ShowAll;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// =====================================>>>>>>>>>      just for testing
+
+//  const categoryList = data?.data?.map(product => product.category);
+//     const uniqueCategories = [...new Set(categoryList)];
+//     uniqueCategories.unshift("All Category")
+//     console.log(uniqueCategories);
+// =====================================>>>>>>>>>
+{/* <div>
+    <select
+        className="select select-secondary lg:w-[180px] btn btn-sm mb-2  focus:outline-none "
+        onChange={handleCategory}
+        value={selectedCategory}
+    >
+        <option disabled selected>
+            Pick your favorite products
+        </option>
+        {
+            uniqueCategories?.map(item => <option className="mb-1 border-b border-black " key={item} value={item}>{item}</option>)
+        }
+
+    </select>
+</div> */}

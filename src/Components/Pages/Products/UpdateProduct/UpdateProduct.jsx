@@ -1,14 +1,17 @@
 /* eslint-disable no-unused-vars */
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
-import { ProductsApi } from "../../../../redux/fetures/products/AroductApi";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
+import { ProductsApi } from "../../../../redux/fetures/products/ProductApi";
 
 const UpdateProduct = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const getId = useParams()
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const [updateProduct, { data, isSuccess, isError }] = ProductsApi.useUpdateProductMutation()
+    const [updateProduct, { data, isSuccess, isError, isLoading }] = ProductsApi.useUpdateProductMutation()
     useEffect(() => {
         if (isSuccess) {
             toast.success(data?.message, {
@@ -113,7 +116,7 @@ const UpdateProduct = () => {
                 </div>
 
                 <button type="submit" className="p-2 bg-blue-500 text-white rounded block w-1/2 mx-auto">
-                    Submit
+                    {isLoading ? <span className="loading loading-spinner loading-sm"></span> : "Submit"}
                 </button>
             </form>
         </div>
