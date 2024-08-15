@@ -5,27 +5,29 @@ const Footer = () => {
         <div className="bg-black  text-white ">
 
             <div className="grid grid-cols-12 text-center h-[60vh] px-[3%] " >
-                <div className="col-span-5 flex justify-center items-center flex-col" >
-                    <h2 className="mr-auto mb-5">LOGO</h2>
-                    <h2 className="mr-[200px] text-left text-gray-400">When do they work well, and when do they on us and finally, when do we actually need how can we avoid them.</h2>
+
+                <div className=" col-span-12 md:col-span-5 flex justify-center items-center flex-col" >
+                    <h2 className="mr-auto mb-5 mt-10 md:mt-0">LOGO</h2>
+                    <h2 className=" lg:mr-[200px] text-left text-gray-400 mb-10 lg:mb-0">When do they work well, and when do they on us and finally, when do we actually need how can we avoid them.</h2>
 
                 </div>
 
-                <div className="col-span-2  flex flex-col justify-center items-center font-semibold">
-                    <button className="flex-1 border border-t-0 hover:bg-white hover:text-black w-full">facebook</button>
-                    <button className="flex-1 border border-t-0 hover:bg-white hover:text-black w-full">twitter</button>
-                    <button className="flex-1 border border-t-0 hover:bg-white hover:text-black w-full">linkdin</button>
-                    <button className="flex-1 border border-b-0 hover:bg-white hover:text-black w-full">instagram</button>
+                <div className=" col-span-12 md:col-span-2  flex flex-col justify-center items-center font-semibold">
+                    <button className="flex-1 border py-5 md:border-t-0 border-gray-800 hover:bg-white hover:text-black w-full">facebook</button>
+                    <button className="flex-1 border py-5 md:border-t-0 border-gray-800 hover:bg-white hover:text-black w-full">twitter</button>
+                    <button className="flex-1 border py-5 md:border-t-0 border-gray-800 hover:bg-white hover:text-black w-full">linkdin</button>
+                    <button className="flex-1 border py-5 md:border-b-0 border-gray-800 hover:bg-white hover:text-black w-full">instagram</button>
                 </div>
 
-                <div className="col-span-5 flex justify-center items-center">
-                    <h2 className="text-[80px] uppercase"> Let's Talk </h2>
+                <div className=" col-span-12 md:col-span-5 flex justify-center items-center">
+                    <h2 className="text-[40px] lg:text-[80px] uppercase mt-10 lg:mt-0"> Let's Talk </h2>
                 </div>
+
             </div>
 
-            <div className="border-t">
-                <div className="px-[3%] py-16 flex justify-between">
-                    <div>
+            <div className="border-t mt-56 md:mt-0">
+                <div className="px-[3%] py-16 flex flex-col-reverse justify-center lg:flex-row lg:justify-between">
+                    <div className=" text-center lg:text-left flex flex-row lg:flex-col justify-center mt-5 lg:mt-0">
                         <h2>
                             © 2022 - 2025 | Alrights reserved
                         </h2>
@@ -34,11 +36,11 @@ const Footer = () => {
                         </h2>
                     </div>
                     <div>
-                        <ul className="list-none flex">
-                            <li className="ml-16 text-sm " >ABOUT US</li>
-                            <li className="ml-16 text-sm " >CONTACT US</li>
-                            <li className="ml-16 text-sm " >CAREER</li>
-                            <li className="ml-16 text-sm " >FAQS</li>
+                        <ul className="list-none flex justify-center lg:justify-end">
+                            <li className=" mx-2 lg:ml-16 text-sm " >ABOUT US</li>
+                            <li className=" mx-2 lg:ml-16 text-sm " >CONTACT US</li>
+                            <li className=" mx-2 lg:ml-16 text-sm " >CAREER</li>
+                            <li className=" mx-2 lg:ml-16 text-sm " >FAQS</li>
                         </ul>
                     </div>
                 </div>

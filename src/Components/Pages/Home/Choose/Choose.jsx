@@ -92,9 +92,9 @@ const Choose = () => {
                                 </div>
                             }
                             {
-                                product.id === "4" && <div className="text-center flex justify-center items-center flex-col pt-10 pb-16 bg-green-50">
+                                product.id === "4" && <div className="text-center flex justify-center items-center flex-col pt-10 pb-16 bg-green-50 w-full">
                                     <h2 className="text-2xl  mb-10">{product.title}</h2>
-                                    <h2 className="text-[40px]  mx-[5%] mb-10">{product.description}</h2>
+                                    <h2 className="text-[40px] mx-[10%] md:mx-[20%] mb-10">{product.description}</h2>
                                     <ContactHoverCard text="Contact Us" />
                                 </div>
                             }
