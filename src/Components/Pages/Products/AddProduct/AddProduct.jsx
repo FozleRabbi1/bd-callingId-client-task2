@@ -1,14 +1,16 @@
 import { useForm } from "react-hook-form";
 import { ProductsApi } from "../../../../redux/fetures/products/ProductApi";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
+const VITE_image_upload_key = import.meta.env.VITE_image_upload_key
 const AddProduct = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const [addProduct, { data, isSuccess, isError, isLoading }] = ProductsApi.useAddProductMutation()
+    const [addProduct, { data, isSuccess, isError, isLoading }] = ProductsApi.useAddProductMutation();
+    const [fileLoading, setFileLoading] = useState(false)
 
     useEffect(() => {
         if (isSuccess) {
@@ -22,18 +24,50 @@ const AddProduct = () => {
         }
     }, [isSuccess, isError, data]);
 
+    const image_hosting_url = `https://api.imgbb.com/1/upload?key=${VITE_image_upload_key}`;
+
     const onSubmit = (data) => {
-        const newData = {
-            ...data,
-            price: Number(data.price),
-            rating: Number(data.rating),
-            stockQuantity: Number(data.stockQuantity),
-        }
-        const res = addProduct(newData)
-        if (res) {
-            reset()
-        }
+        setFileLoading(true)
+        const formData = new FormData();
+        formData.append("image", data.image[0]);
+        fetch(image_hosting_url, {
+            method: "POST",
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imageData => {
+                if (imageData.success) {
+                    setFileLoading(false)
+                    const photoUrl = imageData.data.display_url;
+                    const newData = {
+                        ...data,
+                        price: Number(data.price),
+                        rating: Number(data.rating),
+                        stockQuantity: Number(data.stockQuantity),
+                        image: photoUrl
+                    }
+                    const res = addProduct(newData)
+                    if (res) {
+                        reset()
+                    }
+                }
+            })
+
+        // const newData = {
+        //     ...data,
+        //     price: Number(data.price),
+        //     rating: Number(data.rating),
+        //     stockQuantity: Number(data.stockQuantity),
+        // }
+        // const res = addProduct(newData)
+        // if (res) {
+        //     reset()
+        // }
     };
+
+
+
+
 
     return (
         <div>
@@ -99,14 +133,18 @@ const AddProduct = () => {
                     {errors.price && <p className="text-red-500 text-xs italic">{errors.price.message}</p>}
                 </div>
 
-                <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2">Image URL <span className="text-red-400 text-[11px]">(File Sistem Not Working For Free Hosting...Cloudinary)</span> </label>
+                {/* <div className="mb-4">
+                    <label className="block text-gray-700 text-sm font-bold mb-2">Image URL <span className="text-red-400 text-[11px]">(File Sistem Not Working For Free Hosting...Cloudinary)</span> <span className="text-xs">Go to Google & Press the right button <span className="text-sky-400 bg-black px-1 pb-[2px] rounded-lg ">Copy Image Address</span> & Paste here ... If sending an <span className="text-red-500">error</span> then host a image into the ImageBB then copy <span className="text-sky-400 bg-black px-1 pb-[2px] rounded-lg ">Direct Link</span>  then pest here </span>   </label>
                     <input
-                        {...register("image", { required: "Image URL is required" })}
+                        // {...register("image", { required: "Image URL is required" })}
+                        {...register("image")}
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     />
                     {errors.image && <p className="text-red-500 text-xs italic">{errors.image.message}</p>}
-                </div>
+                </div> */}
+
+                <input type="file"  {...register("image", { required: true })} className="my-2 border-none rounded-md w-8/12 md:w-8/12 lg:w-6/12 max-w-xs text-black mx-2" />
+                {errors.exampleRequired && <span>This field is required</span>}
 
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2">Description</label>
@@ -119,7 +157,7 @@ const AddProduct = () => {
 
 
                 <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 w-[100px] rounded focus:outline-none focus:shadow-outline">
-                    {isLoading ? <span className="loading loading-spinner loading-sm"></span> : "Submit"}
+                    {isLoading || fileLoading ? <span className="loading loading-spinner loading-sm"></span> : "Submit"}
                 </button>
             </form>
 
@@ -128,3 +166,5 @@ const AddProduct = () => {
 };
 
 export default AddProduct;
+
+// 4ea17f4d3fbb2b47aea41bd00a892699

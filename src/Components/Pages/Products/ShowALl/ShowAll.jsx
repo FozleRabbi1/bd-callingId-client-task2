@@ -13,12 +13,15 @@ const ShowAll = () => {
 
     // ====================>>>>>>>> API Call and State
     const [deleteProduct, { data: deleteData, isSuccess }] = ProductsApi.useDeleteProductMutation()
-    const { data, isLoading } = ProductsApi.useGetAllProductsQuery()
+    const { data, isLoading, refetch } = ProductsApi.useGetAllProductsQuery()
     const [itemData, setitemData] = useState(null)
 
-
-
-
+    useEffect(() => {
+        const interval = setInterval(() => {
+            refetch();
+        }, 10000);
+        return () => clearInterval(interval);
+    }, []);
     useEffect(() => {
         if (isSuccess) {
             toast.success(deleteData?.message, {
@@ -47,16 +50,10 @@ const ShowAll = () => {
             }
         })
     }
-
-
-
-
-
     return (
         <div className="text-black dark:text-black">
             <h2 className="text-center font-semibold py-2 italic">Show ALl </h2>
-            <div className=" p-10 pt-2  ">
-
+            <div className=" p-10 pt-2">
                 <div className=" grid grid-cols-3 gap-14 ">
                     {
                         data?.data.map(item =>

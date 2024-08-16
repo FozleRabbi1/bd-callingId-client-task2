@@ -12,6 +12,7 @@ export const ProductsApi = baseApi.injectEndpoints({
                     query,
                 };
             },
+            pollingInterval: 10000
         }),
         updateProduct: builder.mutation({
             query: (data) => {

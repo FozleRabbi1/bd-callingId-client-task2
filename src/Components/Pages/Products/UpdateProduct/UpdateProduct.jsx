@@ -2,9 +2,10 @@
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ProductsApi } from "../../../../redux/fetures/products/ProductApi";
 
+const VITE_image_upload_key = import.meta.env.VITE_image_upload_key
 const UpdateProduct = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -12,6 +13,9 @@ const UpdateProduct = () => {
     const getId = useParams()
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [updateProduct, { data, isSuccess, isError, isLoading }] = ProductsApi.useUpdateProductMutation()
+    const [fileLoading, setFileLoading] = useState(false)
+    const image_hosting_url = `https://api.imgbb.com/1/upload?key=${VITE_image_upload_key}`;
+
     useEffect(() => {
         if (isSuccess) {
             toast.success(data?.message, {
@@ -24,23 +28,52 @@ const UpdateProduct = () => {
         }
     }, [isSuccess, isError, data]);
 
+
     const onSubmit = async (data) => {
-        const filteredData = Object.fromEntries(
-            Object.entries(data).filter(([key, value]) => {
-                return value !== "" && value !== null && value !== undefined;
-            }).map(([key, value]) => {
-                if (!isNaN(value) && typeof value === 'string' && value.trim() !== "") {
-                    return [key, parseFloat(value)];
-                }
-                return [key, value];
-            })
+        setFileLoading(true);
+
+        let filteredData = Object.fromEntries(
+            Object.entries(data)
+                .filter(([key, value]) => value !== "" && value !== null && value !== undefined)
+                .map(([key, value]) => {
+                    if (!isNaN(value) && typeof value === 'string' && value.trim() !== "") {
+                        return [key, parseFloat(value)];
+                    }
+                    return [key, value];
+                })
         );
-        const newData = { ...filteredData, id: getId?.id }
+
+        const formData = new FormData();
+        formData.append("image", data.image[0]);
+
+        try {
+            const response = await fetch(image_hosting_url, {
+                method: "POST",
+                body: formData,
+            });
+
+            const imageData = await response.json();
+
+            if (imageData.success) {
+                const photoUrl = imageData.data.display_url;
+                filteredData.image = photoUrl;
+            } else {
+                console.error("Image upload failed", imageData.error);
+            }
+        } catch (error) {
+            console.error("Error uploading image", error);
+        } finally {
+            setFileLoading(false);
+        }
+
+        const newData = { ...filteredData, id: getId?.id };
         const result = await updateProduct(newData);
         if (result?.data) {
+            setFileLoading(false);
             reset();
         }
     };
+
 
 
     return (
@@ -66,14 +99,22 @@ const UpdateProduct = () => {
                             />
                             {errors.category && <span className="text-red-500">Category is required</span>}
                         </div>
-                        <div className="mb-4">
+                        {/* <div className="mb-4">
                             <label className="block mb-2">Image URL</label>
                             <input
                                 {...register("image")}
                                 className="w-full p-2 border rounded"
                             />
                             {errors.image && <span className="text-red-500">Image URL is required</span>}
-                        </div>
+                        </div> */}
+
+                        <label className="block mb-2">Stock Quantity</label>
+                        <input
+                            type="number"
+                            {...register("stockQuantity")}
+                            className="w-full p-2 border rounded"
+                        />
+                        {errors.stockQuantity && <span className="text-red-500">Stock Quantity is required</span>}
                     </div>
 
                     <div>
@@ -96,14 +137,14 @@ const UpdateProduct = () => {
                             {errors.price && <span className="text-red-500">Price is required</span>}
                         </div>
                         <div className="mb-4">
-                            <label className="block mb-2">Stock Quantity</label>
-                            <input
-                                type="number"
-                                {...register("stockQuantity")}
-                                className="w-full p-2 border rounded"
-                            />
-                            {errors.stockQuantity && <span className="text-red-500">Stock Quantity is required</span>}
+                            <label className="block mb-2">Upload Image</label>
+                            <input type="file"  {...register("image")} className="my-2 border-none rounded-md w-8/12 md:w-8/12 lg:w-6/12 max-w-xs text-black mx-2" />
+                            {errors.exampleRequired && <span>This field is required</span>}
                         </div>
+
+
+
+
                     </div>
                 </div>
                 <div className="mb-4">
@@ -116,7 +157,7 @@ const UpdateProduct = () => {
                 </div>
 
                 <button type="submit" className="p-2 bg-blue-500 text-white rounded block w-1/2 mx-auto">
-                    {isLoading ? <span className="loading loading-spinner loading-sm"></span> : "Submit"}
+                    {isLoading || fileLoading ? <span className="loading loading-spinner loading-sm"></span> : "Submit"}
                 </button>
             </form>
         </div>
