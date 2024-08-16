@@ -14,7 +14,8 @@ const UpdateProduct = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [updateProduct, { data, isSuccess, isError, isLoading }] = ProductsApi.useUpdateProductMutation()
     const [fileLoading, setFileLoading] = useState(false)
-    const image_hosting_url = `https://api.imgbb.com/1/upload?key=${VITE_image_upload_key}`;
+    const image_hosting_url = `https://api.imgbb.com/1/upload?key=4ea17f4d3fbb2b47aea41bd00a892699`;
+
 
     useEffect(() => {
         if (isSuccess) {
@@ -29,17 +30,57 @@ const UpdateProduct = () => {
     }, [isSuccess, isError, data]);
 
 
+    // const onSubmit = async (data) => {
+    //     setFileLoading(true);
+
+    //     let filteredData = Object.fromEntries(
+    //         Object.entries(data)
+    //             .filter(([key, value]) => {
+    //                 return value !== "" && value !== null && value !== undefined;
+    //             })
+    //             .map(([key, value]) => {
+    //                 if (!isNaN(value) && typeof value === 'string' && value.trim() !== "") {
+    //                     return [key, parseFloat(value)];
+    //                 }
+    //                 return [key, value];
+    //             })
+    //     );
+
+    //     const formData = new FormData();
+    //     formData.append("image", data.image[0]);
+    //     fetch(image_hosting_url, {
+    //         method: "POST",
+    //         body: formData
+    //     })
+    //         .then(res => res.json())
+    //         .then(imageData => {
+    //             if (imageData.success) {
+    //                 setFileLoading(false)
+    //                 const photoUrl = imageData.data.display_url;
+    //                 console.log(photoUrl);
+    //                 filteredData.image = photoUrl
+
+    //             }
+    //         })
+
+    //     const newData = { ...filteredData, id: getId?.id };
+    //     console.log(newData);
+
+    //     setFileLoading(false);
+    //     // const result = await updateProduct(newData);
+    //     // if (result?.data) {
+    //     //     setFileLoading(false);
+    //     //     reset();
+    //     // }
+    // };
+
     const onSubmit = async (data) => {
         setFileLoading(true);
 
+        // Filter and process data
         let filteredData = Object.fromEntries(
             Object.entries(data)
-                .filter(([key, value]) => {
-                    if (key === "image" && value instanceof FileList && value.length === 0) {
-                        return false;
-                    }
-                    return value !== "" && value !== null && value !== undefined;
-                })
+                .filter(([key, value]) => value !== "" && value !== null && value !== undefined)
                 .map(([key, value]) => {
                     if (!isNaN(value) && typeof value === 'string' && value.trim() !== "") {
                         return [key, parseFloat(value)];
@@ -48,39 +89,39 @@ const UpdateProduct = () => {
                 })
         );
 
-        if (data.image && data.image.length > 0) {
+        try {
             const formData = new FormData();
-            formData.append("image", data.image[0]);
-            try {
-                const response = await fetch(image_hosting_url, {
+            if (data.image && data.image[0]) {
+                formData.append("image", data.image[0]);
+                const imageResponse = await fetch(image_hosting_url, {
                     method: "POST",
-                    body: formData,
+                    body: formData
                 });
-
-                const imageData = await response.json();
+                const imageData = await imageResponse.json();
 
                 if (imageData.success) {
                     const photoUrl = imageData.data.display_url;
                     filteredData.image = photoUrl;
                 } else {
-                    console.error("Image upload failed", imageData.error);
+                    throw new Error('Image upload failed');
                 }
-            } catch (error) {
-                console.error("Error uploading image", error);
-            } finally {
-                setFileLoading(false);
             }
-        }
-        const newData = { ...filteredData, id: getId?.id };
-        const result = await updateProduct(newData);
-        if (result?.data) {
+
+            const newData = { ...filteredData, id: getId?.id };
+            if (newData?.image?.length === 0) {
+                delete newData.image;
+            }
+
+            const result = await updateProduct(newData);
+            if (result?.data) {
+                reset();
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        } finally {
             setFileLoading(false);
-            reset();
         }
     };
-
-
-
 
 
 
