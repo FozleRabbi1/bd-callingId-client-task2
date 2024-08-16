@@ -122,6 +122,7 @@ const AddProduct = () => {
                     {errors.price && <p className="text-red-500 text-xs italic">{errors.price.message}</p>}
                 </div>
 
+                <label className="block text-gray-700 text-sm font-bold mb-2">Set JPG / PNG / JPEG Photo </label>
                 <input type="file"  {...register("image", { required: true })} className="my-2 border-none rounded-md w-8/12 md:w-8/12 lg:w-6/12 max-w-xs text-black mx-2" />
                 {errors.exampleRequired && <span>This field is required</span>}
 
