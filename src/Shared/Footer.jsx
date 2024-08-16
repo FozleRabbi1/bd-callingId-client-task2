@@ -20,8 +20,6 @@ const Footer = () => {
                 </div>
 
                 <div className=" col-span-12 md:col-span-5 flex justify-center items-center">
-                    {/* <h2 className="text-[40px] lg:text-[80px] uppercase my-10 lg:my-0"> Let's Talk </h2> */}
-
                     <div className="text-container text-[40px] lg:text-[80px] uppercase my-10 lg:my-0">
                         <span style={{ '--text': 1 }}>L</span>
                         <span style={{ '--text': 2 }}>E</span>

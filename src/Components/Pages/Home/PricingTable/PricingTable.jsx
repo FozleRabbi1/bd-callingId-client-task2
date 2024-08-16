@@ -4,16 +4,12 @@ import ContactHoverCard from "../whyChooseUs/ContactHoverCard";
 const PricingTable = () => {
     return (
         <div className="py-[50px] lg:py-[150px] bg-[#f3ecec]">
-
             <div className="lg:max-w-[1200px] px-4 mg:px-10 mx-auto grid lg:grid-cols-2 gap-10 md:gap-20" >
-
                 <div>
                     <h2 className="uppercase font-semibold opacity-70">Pricing Table</h2>
                     <h1 className="uppercase text-[30px] lg:text-[46px] font-bold lg:w-[80%] leading-[50px] mt-2 md:mt-5">Be kind to your
                         mind</h1>
-
                     <div className="mt-10 lg:mt-14">
-
                         <div className="collapse collapse-plus  border-t border-black rounded-none px-0 ">
                             <input type="radio" name="my-accordion-3" defaultChecked />
                             <div className="collapse-title text-md font-semibold">Design should enrich our day</div>
@@ -49,16 +45,13 @@ const PricingTable = () => {
                                 <p>This is the second  accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes.</p>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
                 <div>
                     <div
                         data-aos="fade-up"
                         data-aos-duration="1200"
                         className="bg-black text-white rounded-md relative">
-
                         <div className="flex items-center py-10 ">
                             <span className="mx-8 bg-orange-500 p-3 rounded-md">
                                 <IoMdCheckmark />
@@ -77,12 +70,10 @@ const PricingTable = () => {
                             best value
                         </h2>
                     </div>
-
                     <div
                         data-aos="fade-up"
                         data-aos-duration="1200"
                         className="bg-white text-black rounded-md relative mt-5">
-
                         <div className="flex items-center py-10 ">
                             <span className="mx-8 bg-orange-500 p-3 rounded-md">
                                 <IoMdCheckmark />
@@ -96,19 +87,12 @@ const PricingTable = () => {
                         <h2 className="text-2xl lg:text-3xl font-bold absolute top-[15%] lg:top-[20%] right-[10%]">
                             $12.99
                         </h2>
-
                     </div>
-
-
                     <div className="mt-10 md:mt-20">
                         <ContactHoverCard text="try it free now" />
                     </div>
-
                 </div>
-
             </div>
-
-
         </div>
     );
 };

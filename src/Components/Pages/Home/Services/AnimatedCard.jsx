@@ -9,15 +9,12 @@ const AnimatedCard = () => {
         const rect = divElement.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-
         divElement.style.transform = `translate(${(x - rect.width / 2) / 5}px, ${(y - rect.height / 2) / 5}px)`;
     };
-
     const handleMouseLeave = () => {
         const divElement = divRef.current;
         divElement.style.transform = `translate(0px, 0px)`;
     };
-
     return (
         <div
             data-aos="fade-down"
@@ -34,5 +31,4 @@ const AnimatedCard = () => {
         </div>
     );
 };
-
 export default AnimatedCard;

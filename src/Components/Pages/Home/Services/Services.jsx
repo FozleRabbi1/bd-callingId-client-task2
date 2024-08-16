@@ -30,10 +30,8 @@ const Services = () => {
             image: "https://media.istockphoto.com/id/641945126/photo/when-the-customer-calls-direct-them-here.webp?b=1&s=170667a&w=0&k=20&c=Qsr0bUsWL6UBp0CX_Ip6GbXI4uQl2mQHBamjAU5TfYY="
         },
     ]
-
     return (
         <div className="lg:pb-40 overflow-hidden px-5 lg:px-16 ">
-
             <div className=" md:h-[50vh] lg:h-[80vh] py-10 flex justify-center items-center flex-col lg:relative lg:mb-40  ">
 
                 <div className=" w-full lg:w-[35%]  lg:-mt-24 lg:-ml-16">
@@ -52,8 +50,6 @@ const Services = () => {
                 </div>
 
             </div>
-
-
             <div className="mb-10">
                 {
                     datas.map(data => (
@@ -79,23 +75,17 @@ const Services = () => {
                                     }
                                 </ul>
                             </div>
-
                             <div className="col-span-12 md:col-span-3 xl:col-span-2 flex lg:justify-end " >
                                 <AnimatedCard />
                             </div>
-
                             <div className="hidden lg:block">
                                 <FollowingImage imageUrl={imageUrl} visible={customCursor} ></FollowingImage>
                             </div>
-
                         </div>
                     ))
                 }
             </div>
-
-
         </div>
-
     );
 };
 

@@ -16,7 +16,6 @@ const UpdateProduct = () => {
     const [fileLoading, setFileLoading] = useState(false)
     const image_hosting_url = `https://api.imgbb.com/1/upload?key=4ea17f4d3fbb2b47aea41bd00a892699`;
 
-
     useEffect(() => {
         if (isSuccess) {
             toast.success(data?.message, {
@@ -29,55 +28,9 @@ const UpdateProduct = () => {
         }
     }, [isSuccess, isError, data]);
 
-
-    // const onSubmit = async (data) => {
-    //     setFileLoading(true);
-
-    //     let filteredData = Object.fromEntries(
-    //         Object.entries(data)
-    //             .filter(([key, value]) => {
-    //                 return value !== "" && value !== null && value !== undefined;
-    //             })
-    //             .map(([key, value]) => {
-    //                 if (!isNaN(value) && typeof value === 'string' && value.trim() !== "") {
-    //                     return [key, parseFloat(value)];
-    //                 }
-    //                 return [key, value];
-    //             })
-    //     );
-
-    //     const formData = new FormData();
-    //     formData.append("image", data.image[0]);
-    //     fetch(image_hosting_url, {
-    //         method: "POST",
-    //         body: formData
-    //     })
-    //         .then(res => res.json())
-    //         .then(imageData => {
-    //             if (imageData.success) {
-    //                 setFileLoading(false)
-    //                 const photoUrl = imageData.data.display_url;
-    //                 console.log(photoUrl);
-    //                 filteredData.image = photoUrl
-
-    //             }
-    //         })
-
-    //     const newData = { ...filteredData, id: getId?.id };
-    //     console.log(newData);
-
-    //     setFileLoading(false);
-    //     // const result = await updateProduct(newData);
-    //     // if (result?.data) {
-    //     //     setFileLoading(false);
-    //     //     reset();
-    //     // }
-    // };
-
     const onSubmit = async (data) => {
         setFileLoading(true);
 
-        // Filter and process data
         let filteredData = Object.fromEntries(
             Object.entries(data)
                 .filter(([key, value]) => value !== "" && value !== null && value !== undefined)
@@ -88,7 +41,6 @@ const UpdateProduct = () => {
                     return [key, value];
                 })
         );
-
         try {
             const formData = new FormData();
             if (data.image && data.image[0]) {
@@ -106,12 +58,10 @@ const UpdateProduct = () => {
                     throw new Error('Image upload failed');
                 }
             }
-
             const newData = { ...filteredData, id: getId?.id };
             if (newData?.image?.length === 0) {
                 delete newData.image;
             }
-
             const result = await updateProduct(newData);
             if (result?.data) {
                 reset();
@@ -122,8 +72,6 @@ const UpdateProduct = () => {
             setFileLoading(false);
         }
     };
-
-
 
     return (
         <div>
@@ -148,14 +96,6 @@ const UpdateProduct = () => {
                             />
                             {errors.category && <span className="text-red-500">Category is required</span>}
                         </div>
-                        {/* <div className="mb-4">
-                            <label className="block mb-2">Image URL</label>
-                            <input
-                                {...register("image")}
-                                className="w-full p-2 border rounded"
-                            />
-                            {errors.image && <span className="text-red-500">Image URL is required</span>}
-                        </div> */}
 
                         <label className="block mb-2">Stock Quantity</label>
                         <input
@@ -165,7 +105,6 @@ const UpdateProduct = () => {
                         />
                         {errors.stockQuantity && <span className="text-red-500">Stock Quantity is required</span>}
                     </div>
-
                     <div>
                         <div className="mb-4">
                             <label className="block mb-2">Name</label>
@@ -175,7 +114,6 @@ const UpdateProduct = () => {
                             />
                             {errors.name && <span className="text-red-500">Name is required</span>}
                         </div>
-
                         <div className="mb-4">
                             <label className="block mb-2">Price</label>
                             <input
@@ -190,10 +128,6 @@ const UpdateProduct = () => {
                             <input type="file"  {...register("image")} className="my-2 border-none rounded-md w-8/12 md:w-8/12 lg:w-6/12 max-w-xs text-black mx-2" />
                             {errors.exampleRequired && <span>This field is required</span>}
                         </div>
-
-
-
-
                     </div>
                 </div>
                 <div className="mb-4">
@@ -204,7 +138,6 @@ const UpdateProduct = () => {
                     />
                     {errors.description && <span className="text-red-500">Description is required</span>}
                 </div>
-
                 <button type="submit" className="p-2 bg-blue-500 text-white rounded block w-1/2 mx-auto">
                     {isLoading || fileLoading ? <span className="loading loading-spinner loading-sm"></span> : "Submit"}
                 </button>

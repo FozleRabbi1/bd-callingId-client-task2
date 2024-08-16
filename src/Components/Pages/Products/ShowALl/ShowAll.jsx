@@ -108,48 +108,4 @@ const ShowAll = () => {
         </div>
     );
 };
-
 export default ShowAll;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// =====================================>>>>>>>>>      just for testing
-
-//  const categoryList = data?.data?.map(product => product.category);
-//     const uniqueCategories = [...new Set(categoryList)];
-//     uniqueCategories.unshift("All Category")
-//     console.log(uniqueCategories);
-// =====================================>>>>>>>>>
-{/* <div>
-    <select
-        className="select select-secondary lg:w-[180px] btn btn-sm mb-2  focus:outline-none "
-        onChange={handleCategory}
-        value={selectedCategory}
-    >
-        <option disabled selected>
-            Pick your favorite products
-        </option>
-        {
-            uniqueCategories?.map(item => <option className="mb-1 border-b border-black " key={item} value={item}>{item}</option>)
-        }
-
-    </select>
-</div> */}
