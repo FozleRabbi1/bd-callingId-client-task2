@@ -3,7 +3,7 @@ import { ProductsApi } from "../../../../redux/fetures/products/ProductApi";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-// const VITE_image_upload_key = import.meta.env.VITE_image_upload_key
+const VITE_image_upload_key = import.meta.env.VITE_image_upload_key
 const AddProduct = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -24,7 +24,7 @@ const AddProduct = () => {
         }
     }, [isSuccess, isError, data]);
 
-    const image_hosting_url = `https://api.imgbb.com/1/upload?key=4ea17f4d3fbb2b47aea41bd00a892699`;
+    const image_hosting_url = `https://api.imgbb.com/1/upload?key=${VITE_image_upload_key}`;
 
     const onSubmit = (data) => {
         setFileLoading(true)

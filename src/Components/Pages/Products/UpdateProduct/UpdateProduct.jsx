@@ -14,7 +14,7 @@ const UpdateProduct = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [updateProduct, { data, isSuccess, isError, isLoading }] = ProductsApi.useUpdateProductMutation()
     const [fileLoading, setFileLoading] = useState(false)
-    const image_hosting_url = `https://api.imgbb.com/1/upload?key=4ea17f4d3fbb2b47aea41bd00a892699`;
+    const image_hosting_url = `https://api.imgbb.com/1/upload?key=${VITE_image_upload_key}`;
 
     useEffect(() => {
         if (isSuccess) {
