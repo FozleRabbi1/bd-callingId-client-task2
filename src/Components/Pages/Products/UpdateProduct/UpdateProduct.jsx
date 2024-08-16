@@ -34,7 +34,12 @@ const UpdateProduct = () => {
 
         let filteredData = Object.fromEntries(
             Object.entries(data)
-                .filter(([key, value]) => value !== "" && value !== null && value !== undefined)
+                .filter(([key, value]) => {
+                    if (key === "image" && value instanceof FileList && value.length === 0) {
+                        return false;
+                    }
+                    return value !== "" && value !== null && value !== undefined;
+                })
                 .map(([key, value]) => {
                     if (!isNaN(value) && typeof value === 'string' && value.trim() !== "") {
                         return [key, parseFloat(value)];
@@ -43,29 +48,29 @@ const UpdateProduct = () => {
                 })
         );
 
-        const formData = new FormData();
-        formData.append("image", data.image[0]);
+        if (data.image && data.image.length > 0) {
+            const formData = new FormData();
+            formData.append("image", data.image[0]);
+            try {
+                const response = await fetch(image_hosting_url, {
+                    method: "POST",
+                    body: formData,
+                });
 
-        try {
-            const response = await fetch(image_hosting_url, {
-                method: "POST",
-                body: formData,
-            });
+                const imageData = await response.json();
 
-            const imageData = await response.json();
-
-            if (imageData.success) {
-                const photoUrl = imageData.data.display_url;
-                filteredData.image = photoUrl;
-            } else {
-                console.error("Image upload failed", imageData.error);
+                if (imageData.success) {
+                    const photoUrl = imageData.data.display_url;
+                    filteredData.image = photoUrl;
+                } else {
+                    console.error("Image upload failed", imageData.error);
+                }
+            } catch (error) {
+                console.error("Error uploading image", error);
+            } finally {
+                setFileLoading(false);
             }
-        } catch (error) {
-            console.error("Error uploading image", error);
-        } finally {
-            setFileLoading(false);
         }
-
         const newData = { ...filteredData, id: getId?.id };
         const result = await updateProduct(newData);
         if (result?.data) {
@@ -73,6 +78,9 @@ const UpdateProduct = () => {
             reset();
         }
     };
+
+
+
 
 
 
