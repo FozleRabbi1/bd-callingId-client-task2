@@ -12,7 +12,11 @@ const AllUsers = () => {
     const currentUser = useSelector(selectCurrentUser);
     const [loadingId, setLoadingId] = useState(null);
 
-    const changeRole = async (role, id) => {
+    const changeRole = async (role, id, email) => {
+
+        if (currentUser?.email === email) {
+            return toast.error("You cannot change your own role");
+        }
         if (currentUser?.role !== "admin") {
             return toast.error("Only Admin Can Change The Role");
         }
@@ -52,7 +56,7 @@ const AllUsers = () => {
                             <h2 className="col-span-2">Role: {i.role}</h2>
                             <div className="col-span-3 flex gap-2">
                                 <button
-                                    onClick={() => changeRole("admin", i._id)}
+                                    onClick={() => changeRole("admin", i._id, i?.email)}
                                     disabled={i.role === "admin"}
                                     className={`border px-3 duration-300 w-full h-[30px] ${i.role === "admin" ? "bg-gray-400 text-gray-700 cursor-not-allowed" : "bg-blue-400"}`}
                                 >
@@ -61,7 +65,7 @@ const AllUsers = () => {
                                     }
                                 </button>
                                 <button
-                                    onClick={() => changeRole("user", i._id)}
+                                    onClick={() => changeRole("user", i._id, i?.email)}
                                     disabled={i.role === "user"}
                                     className={`border px-3 duration-300 w-full h-[30px] ${i.role === "user" ? "bg-gray-400 cursor-not-allowed" : "bg-green-400"}`}
                                 >
