@@ -1,15 +1,41 @@
 import { useForm } from 'react-hook-form';
+import authApi from '../../../redux/fetures/auth/authApi';
+import { verifyToken } from '../../../utils/verifyToken';
+import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../../../redux/hooks';
+import { setUser } from '../../../redux/fetures/auth/authSlice';
+import { toast } from 'react-toastify';
 
 const Login = () => {
+    const navigate = useNavigate();
+    const dispatch = useAppDispatch();
+
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
+    const [login] = authApi.useLoginMutation()
 
-    const onSubmit = (data) => {
-        console.log('Form Data:', data);
-        // You can send the data to your backend here using fetch/axios, etc.
+    const onSubmit = async (data) => {
+        try {
+            const res = await login(data).unwrap();
+            const token = res.data.accessToken;
+            const user = verifyToken(token);
+            dispatch(setUser({ user, token }));
+            toast.success(`${user.role} Login SuccessFully`, {
+                duration: 3000,
+                style: {
+                    background: "green",
+                    color: "white",
+                    width: "250px",
+                },
+            });
+            navigate(`/products`);
+        } catch (err) {
+            toast.error(err.data.message);
+            //এর ফলে loding toast কে সে folsy করে ফেলবে & উক্ত toast এর মধ্যে error value show করবে
+        }
     };
 
     return (

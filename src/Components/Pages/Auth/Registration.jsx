@@ -15,7 +15,13 @@ const Register = () => {
     const onSubmit = async (data) => {
         const userInfo = data.user
         const res = await registerApi({ user: userInfo })
-        console.log(17, res);
+
+        if (res?.error?.data.success === false) {
+            toast.error(res?.error?.data.message)
+        }
+        if (res?.error?.data?.errorSources) {
+            res?.error?.data?.errorSources.map(i => toast.error(i.message))
+        }
         if (res?.data?.success) {
             toast.success("SuccessFully Registered", {
                 position: "top-center",

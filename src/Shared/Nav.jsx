@@ -2,8 +2,19 @@
 import { CiSearch } from "react-icons/ci";
 import { HiMiniBars3BottomRight } from "react-icons/hi2";
 import { Link } from "react-router-dom";
+import { useAppDispatch } from "../redux/hooks";
+import { logOut, selectCurrentUser } from "../redux/fetures/auth/authSlice";
+import { useSelector } from "react-redux";
 
 const NavBar = ({ scrollY }) => {
+  const currentUser = useSelector(selectCurrentUser);
+  const dispatch = useAppDispatch();
+  const handleLOgout = () => {
+    dispatch(logOut());
+  };
+
+
+
   return (
     <div className={`bg-white dark:text-black fixed top-0 left-0 w-full z-50 ${scrollY >= 100 ? "border-b" : ""}  duration-300`}>
       <div className="navbar lg:px-14">
@@ -46,12 +57,19 @@ const NavBar = ({ scrollY }) => {
             <li className="text-[16px] text-gray-600">
               <Link to="/products"> Products </Link>
             </li>
-            <li className="text-[16px] text-gray-600">
-              <Link to="/login"> Login </Link>
-            </li>
+
+            {
+              currentUser ? <li className="text-[16px] text-gray-600">
+                <button onClick={handleLOgout}>Log-Out</button>
+              </li> : <li className="text-[16px] text-gray-600">
+                <Link to="/login"> Login </Link>
+              </li>
+            }
+
             <li className="text-[16px] text-gray-600">
               <Link to="/register"> Register </Link>
             </li>
+
 
 
             <li className="text-[16px] text-gray-600">

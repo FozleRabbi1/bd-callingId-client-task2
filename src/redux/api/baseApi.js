@@ -31,10 +31,10 @@ const baseQuery = fetchBaseQuery({
 
 const baseQueryWithRefreshToken = async (args, api, extraOptions) => {
   let result = await baseQuery(args, api, extraOptions);
-
   if (result?.error?.status === 404) {
     toast.error(`cool error = ${result?.error?.data.message}`);
   }
+
   if (result?.error?.status === 401) {
     console.log("sending refresh token");
 

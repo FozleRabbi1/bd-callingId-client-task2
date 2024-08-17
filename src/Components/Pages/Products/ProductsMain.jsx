@@ -1,8 +1,11 @@
 import { Link, Outlet } from 'react-router-dom';
 import './ProductsMain.css'
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '../../../redux/fetures/auth/authSlice';
 
 const ProductsMain = () => {
+    const currentUser = useSelector(selectCurrentUser);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -15,6 +18,11 @@ const ProductsMain = () => {
 
                 <div className=" col-span-2 bg-gray-200 sticky top-20 h-[calc(100vh-4rem)]">
                     <div className="flex flex-col items-center">
+                        {
+                            currentUser && <p className="buttons py-2 w-[90%] mt-5  text-[12px] text-center">
+                                {currentUser?.email}
+                            </p>
+                        }
                         <Link to="/products" className="buttons py-2 w-[90%] mt-5 text-left pl-3">
                             Show All Products
                         </Link>

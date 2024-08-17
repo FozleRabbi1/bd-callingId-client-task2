@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import { ProductsApi } from "../../../../redux/fetures/products/ProductApi";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../../../redux/fetures/auth/authSlice";
 
 const ShowAll = () => {
     useEffect(() => {
@@ -15,6 +17,9 @@ const ShowAll = () => {
     const [deleteProduct, { data: deleteData, isSuccess }] = ProductsApi.useDeleteProductMutation()
     const { data, isLoading, refetch } = ProductsApi.useGetAllProductsQuery()
     const [itemData, setitemData] = useState(null)
+    const currentUser = useSelector(selectCurrentUser);  
+
+
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -36,6 +41,9 @@ const ShowAll = () => {
         </div>
     }
     const handleDelete = (id) => {
+        if (currentUser?.role !== "admin") {
+            return toast.error("Only Admin Can Delete Product")
+        }
         Swal.fire({
             title: 'Are you sure?',
             text: `You won't remove This`,
