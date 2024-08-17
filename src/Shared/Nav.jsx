@@ -46,6 +46,13 @@ const NavBar = ({ scrollY }) => {
             <li className="text-[16px] text-gray-600">
               <Link to="/products"> Products </Link>
             </li>
+            <li className="text-[16px] text-gray-600">
+              <Link to="/login"> Login </Link>
+            </li>
+            <li className="text-[16px] text-gray-600">
+              <Link to="/register"> Register </Link>
+            </li>
+
 
             <li className="text-[16px] text-gray-600">
               <a>Item 2</a>
