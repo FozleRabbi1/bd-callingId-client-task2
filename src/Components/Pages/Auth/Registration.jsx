@@ -1,15 +1,28 @@
 import { useForm } from 'react-hook-form';
+import authApi from '../../../redux/fetures/auth/authApi';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Register = () => {
+    const navigate = useNavigate()
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
+    const [registerApi] = authApi.useRegisterApiMutation()
 
-    const onSubmit = (data) => {
-        console.log('Registration Data:', data.user);
-
+    const onSubmit = async (data) => {
+        const userInfo = data.user
+        const res = await registerApi({ user: userInfo })
+        console.log(17, res);
+        if (res?.data?.success) {
+            toast.success("SuccessFully Registered", {
+                position: "top-center",
+                theme: "light",
+            })
+            navigate("/login")
+        }
     };
 
     return (
