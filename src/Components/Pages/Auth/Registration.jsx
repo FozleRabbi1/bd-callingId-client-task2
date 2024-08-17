@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import authApi from '../../../redux/fetures/auth/authApi';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useState } from 'react';
 
 const Register = () => {
     const navigate = useNavigate()
@@ -11,24 +12,25 @@ const Register = () => {
         formState: { errors },
     } = useForm();
     const [registerApi] = authApi.useRegisterApiMutation()
+    const [customLoading, setCustomLoading] = useState(false)
 
     const onSubmit = async (data) => {
+        setCustomLoading(true)
         const userInfo = data.user
         const res = await registerApi({ user: userInfo })
 
-        if (res?.error?.data.success === false) {
-            toast.error(res?.error?.data.message)
-        }
         if (res?.error?.data?.errorSources) {
             res?.error?.data?.errorSources.map(i => toast.error(i.message))
         }
         if (res?.data?.success) {
+            setCustomLoading(false)
             toast.success("SuccessFully Registered", {
                 position: "top-center",
                 theme: "light",
             })
             navigate("/login")
         }
+        setCustomLoading(false)
     };
 
     return (
@@ -124,7 +126,11 @@ const Register = () => {
                         type="submit"
                         className="w-full py-2 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
-                        Register
+                        {
+                            customLoading ? <span className="loading loading-spinner loading-sm"></span> : "Register"
+                        }
+
+
                     </button>
                 </form>
             </div>

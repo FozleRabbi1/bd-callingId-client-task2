@@ -17,8 +17,7 @@ const ShowAll = () => {
     const [deleteProduct, { data: deleteData, isSuccess }] = ProductsApi.useDeleteProductMutation()
     const { data, isLoading, refetch } = ProductsApi.useGetAllProductsQuery()
     const [itemData, setitemData] = useState(null)
-    const currentUser = useSelector(selectCurrentUser);  
-
+    const currentUser = useSelector(selectCurrentUser);
 
 
     useEffect(() => {

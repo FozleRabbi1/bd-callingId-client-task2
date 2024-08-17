@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useForm } from 'react-hook-form';
 import authApi from '../../../redux/fetures/auth/authApi';
 import { verifyToken } from '../../../utils/verifyToken';
@@ -5,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../redux/hooks';
 import { setUser } from '../../../redux/fetures/auth/authSlice';
 import { toast } from 'react-toastify';
+import { useState } from 'react';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -16,8 +18,10 @@ const Login = () => {
         formState: { errors },
     } = useForm();
     const [login] = authApi.useLoginMutation()
+    const [customLoading, setCustomLoading] = useState(false)
 
     const onSubmit = async (data) => {
+        setCustomLoading(true)
         try {
             const res = await login(data).unwrap();
             const token = res.data.accessToken;
@@ -28,13 +32,14 @@ const Login = () => {
                 style: {
                     background: "green",
                     color: "white",
-                    width: "250px",
+                    width: "300px",
                 },
             });
+            setCustomLoading(false)
             navigate(`/products`);
         } catch (err) {
-            toast.error(err.data.message);
-            //এর ফলে loding toast কে সে folsy করে ফেলবে & উক্ত toast এর মধ্যে error value show করবে
+            setCustomLoading(false)
+            // toast.error(err.data.message);
         }
     };
 
@@ -91,7 +96,9 @@ const Login = () => {
                         type="submit"
                         className="w-full py-2 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
-                        Login
+                        {
+                            customLoading ? <span className="loading loading-spinner loading-sm"></span> : "Login"
+                        }
                     </button>
                 </form>
             </div>
