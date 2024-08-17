@@ -7,6 +7,7 @@ import AddProduct from "../Components/Pages/Products/AddProduct/AddProduct";
 import UpdateProduct from "../Components/Pages/Products/UpdateProduct/UpdateProduct";
 import Register from "../Components/Pages/Auth/Registration";
 import Login from "../Components/Pages/Auth/Login";
+import AllUsers from "../Components/Pages/Products/AllUsers/AllUsers";
 
 const routes = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ const routes = createBrowserRouter([
                     {
                         path: "update/:id",
                         element: <UpdateProduct />,
+                    },
+                    {
+                        path: "manageAllUsers",
+                        element: <AllUsers />,
                     }
                 ]
 

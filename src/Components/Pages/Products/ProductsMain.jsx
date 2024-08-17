@@ -30,6 +30,10 @@ const ProductsMain = () => {
                         <Link to="/products/add-product" className="buttons py-2 w-[90%] mt-5 text-left pl-3">
                             Add Product
                         </Link>
+                        <Link to="/products/manageAllUsers" className="buttons py-2 w-[90%] mt-5 text-left pl-3">
+                            Manage Users
+                        </Link>
+
                     </div>
                 </div>
 
