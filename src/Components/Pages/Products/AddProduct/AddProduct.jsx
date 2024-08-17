@@ -2,12 +2,17 @@ import { useForm } from "react-hook-form";
 import { ProductsApi } from "../../../../redux/fetures/products/ProductApi";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../../../redux/fetures/auth/authSlice";
+import { useNavigate } from "react-router-dom";
 
 const VITE_image_upload_key = import.meta.env.VITE_image_upload_key
 const AddProduct = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+    const currentUser = useSelector(selectCurrentUser);
+    const navigate = useNavigate()
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [addProduct, { data, isSuccess, isError, isLoading }] = ProductsApi.useAddProductMutation();
     const [fileLoading, setFileLoading] = useState(false)
@@ -27,6 +32,10 @@ const AddProduct = () => {
     const image_hosting_url = `https://api.imgbb.com/1/upload?key=${VITE_image_upload_key}`;
 
     const onSubmit = (data) => {
+        if (!currentUser) {
+            navigate("/login")
+            return toast.error("Login Frist")
+        }
         setFileLoading(true)
         const formData = new FormData();
         formData.append("image", data.image[0]);

@@ -19,8 +19,9 @@ const ProductsMain = () => {
                 <div className=" col-span-2 bg-gray-200 sticky top-20 h-[calc(100vh-4rem)]">
                     <div className="flex flex-col items-center">
                         {
-                            currentUser && <p className="buttons py-2 w-[90%] mt-5  text-[12px] text-center">
+                            currentUser && <p className="buttons py-2 w-[90%] mt-5  text-[12px] text-center relative">
                                 {currentUser?.email}
+                                <span className='absolute top-0 left-5 -translate-x-1/2 -translate-y-1/2 bg-blue-600 rounded px-1 py-[1px] text-white font-semibold'>{currentUser?.role}</span>
                             </p>
                         }
                         <Link to="/products" className="buttons py-2 w-[90%] mt-5 text-left pl-3">

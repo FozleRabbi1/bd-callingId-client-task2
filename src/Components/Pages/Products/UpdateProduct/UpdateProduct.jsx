@@ -1,20 +1,24 @@
 /* eslint-disable no-unused-vars */
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { ProductsApi } from "../../../../redux/fetures/products/ProductApi";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../../../redux/fetures/auth/authSlice";
 
 const VITE_image_upload_key = import.meta.env.VITE_image_upload_key
 const UpdateProduct = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+    const currentUser = useSelector(selectCurrentUser);
     const getId = useParams()
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [updateProduct, { data, isSuccess, isError, isLoading }] = ProductsApi.useUpdateProductMutation()
     const [fileLoading, setFileLoading] = useState(false)
     const image_hosting_url = `https://api.imgbb.com/1/upload?key=${VITE_image_upload_key}`;
+    const navigate = useNavigate()
 
     useEffect(() => {
         if (isSuccess) {
@@ -29,8 +33,11 @@ const UpdateProduct = () => {
     }, [isSuccess, isError, data]);
 
     const onSubmit = async (data) => {
+        if (!currentUser) {
+            navigate("/login")
+            return toast.error("Login Frist")
+        }
         setFileLoading(true);
-
         let filteredData = Object.fromEntries(
             Object.entries(data)
                 .filter(([key, value]) => value !== "" && value !== null && value !== undefined)
