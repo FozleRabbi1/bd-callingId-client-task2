@@ -7,7 +7,7 @@ import { ProductsApi } from "../../../../redux/fetures/products/ProductApi";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../../../redux/fetures/auth/authSlice";
 
-const VITE_image_upload_key = import.meta.env.VITE_image_upload_key
+// const VITE_image_upload_key = import.meta.env.VITE_image_upload_key
 const UpdateProduct = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -17,7 +17,8 @@ const UpdateProduct = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [updateProduct, { data, isSuccess, isError, isLoading }] = ProductsApi.useUpdateProductMutation()
     const [fileLoading, setFileLoading] = useState(false)
-    const image_hosting_url = `https://api.imgbb.com/1/upload?key=${VITE_image_upload_key}`;
+    // const image_hosting_url = `https://api.imgbb.com/1/upload?key=${VITE_image_upload_key}`;
+    const image_hosting_url = `https://api.imgbb.com/1/upload?key=4ea17f4d3fbb2b47aea41bd00a892699`;
     const navigate = useNavigate()
 
     useEffect(() => {

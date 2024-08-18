@@ -80,11 +80,11 @@ const Login = () => {
                             {...register('password', {
                                 required: 'Password is required',
                                 minLength: {
-                                    value: 8,
-                                    message: 'Password must be at least 8 characters long',
+                                    value: 6,
+                                    message: 'Password must be at least 6 characters long',
                                 },
                                 pattern: {
-                                    value: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                                    value: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
                                     message: 'Password must include upper, lower, number, and special character',
                                 },
                             })}

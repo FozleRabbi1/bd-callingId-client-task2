@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import './ShowAll.css'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import { ProductsApi } from "../../../../redux/fetures/products/ProductApi";
@@ -18,6 +18,7 @@ const ShowAll = () => {
     const { data, isLoading, refetch } = ProductsApi.useGetAllProductsQuery()
     const [itemData, setitemData] = useState(null)
     const currentUser = useSelector(selectCurrentUser);
+    const navigate = useNavigate()
 
 
     useEffect(() => {
@@ -40,6 +41,10 @@ const ShowAll = () => {
         </div>
     }
     const handleDelete = (id) => {
+        if (!currentUser) {
+            navigate("/login")
+            return toast.error("Login Frist")
+        }
         if (currentUser?.role !== "admin") {
             return toast.error("Only Admin Can Delete Product")
         }

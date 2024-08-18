@@ -4,16 +4,25 @@ import { selectCurrentUser } from "../../../../redux/fetures/auth/authSlice";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AllUsers = () => {
-    const { data } = authApi.useGetALlUsersQuery();
+    const { data, isLoading } = authApi.useGetALlUsersQuery();
     const [updateUsersRole] = authApi.useUpdateUsersRoleMutation()
     const [deleteUser] = authApi.useDeleteUserMutation()
     const currentUser = useSelector(selectCurrentUser);
     const [loadingId, setLoadingId] = useState(null);
+    const navigate = useNavigate()
+
+    if (isLoading) {
+        return <div className="h-[60vh] flex justify-center items-center"> <p>Loading...</p> </div>
+    }
 
     const changeRole = async (role, id, email) => {
-
+        if (!currentUser) {
+            navigate("/login")
+            return toast.warning("Login First")
+        }
         if (currentUser?.email === email) {
             return toast.error("You cannot change your own role");
         }
@@ -26,9 +35,14 @@ const AllUsers = () => {
     };
 
     const deleteUserHandler = (id) => {
+        if (!currentUser) {
+            navigate("/login")
+            return toast.warning("Login First")
+        }
         if (currentUser?.role !== "admin") {
             return toast.error("Only Admin Can Delete The User");
         }
+        setLoadingId(id)
         Swal.fire({
             title: 'Are you sure?',
             text: `You won't remove This User`,
@@ -40,7 +54,9 @@ const AllUsers = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 deleteUser(id);
+                setLoadingId(null);
             }
+            setLoadingId(null)
         });
     };
 
@@ -70,14 +86,16 @@ const AllUsers = () => {
                                     className={`border px-3 duration-300 w-full h-[30px] ${i.role === "user" ? "bg-gray-400 cursor-not-allowed" : "bg-green-400"}`}
                                 >
                                     {
-                                        loadingId === i._id ? <span className="loading loading-ring loading-md"></span> : "User"
+                                        loadingId === i._id ? <span className="loading loading-ring loading-md h-[30px]"></span> : "User"
                                     }
                                 </button>
                                 <button
                                     onClick={() => deleteUserHandler(i._id)}
                                     className="border px-3 bg-red-400 w-full h-[30px]"
                                 >
-                                    Remove
+                                    {
+                                        loadingId === i._id ? <span className="loading loading-ring loading-md h-[30px]"></span> : "Delete"
+                                    }
                                 </button>
                             </div>
                         </div>
