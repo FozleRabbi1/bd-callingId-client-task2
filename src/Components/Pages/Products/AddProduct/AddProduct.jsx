@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../../../redux/fetures/auth/authSlice";
 import { useNavigate } from "react-router-dom";
 
-// const VITE_image_upload_key = import.meta.env.VITE_image_upload_key
+const VITE_image_upload_key = import.meta.env.VITE_image_upload_key
 const AddProduct = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -29,8 +29,7 @@ const AddProduct = () => {
         }
     }, [isSuccess, isError, data]);
 
-    // const image_hosting_url = `https://api.imgbb.com/1/upload?key=${VITE_image_upload_key}`;
-    const image_hosting_url = `https://api.imgbb.com/1/upload?key=4ea17f4d3fbb2b47aea41bd00a892699`;
+    const image_hosting_url = `https://api.imgbb.com/1/upload?key=${VITE_image_upload_key}`;
 
     const onSubmit = (data) => {
         if (!currentUser) {
