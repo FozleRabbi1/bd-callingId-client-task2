@@ -1,19 +1,25 @@
-# React + Vite
+# Digital Marketing
 
-## Tooles
- * React.js
- * Redux
- * Aos
- * Framer-motion
- * React-dom
- * React-hook
- * React-icons
- * React-redux
- * React-router
- * React-toastify
- * Resize-observer
- * Sweetalert2
- * Swiper
+## Description
+Brief description of the project and its purpose.
+
+## Dependencies
+
+- `@reduxjs/toolkit`
+- `aos`
+- `framer-motion`
+- `jwt-decode`
+- `react`
+- `react-dom`
+- `react-hook-form`
+- `react-icons`
+- `react-redux`
+- `react-router-dom`
+- `react-toastify`
+- `redux-persist`
+- `resize-observer-polyfill`
+- `sweetalert2`
+- `swiper`
 
 ## Product Management Features
 
